@@ -5,6 +5,7 @@
  */
 package protocollo_chat;
 
+import java.awt.event.ActionEvent;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -16,12 +17,17 @@ import java.net.Socket;
  */
 public class Protocollo_chat {
 
-    /**
-     * @param args the command line arguments
-     */
-   /* public static void main(String[] args) throws IOException {
+   public static void main(String[] args) throws IOException {
         
-        //creo il client
+         
+        GUI prova = new GUI () {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
+ } 
+       /** //creo il client
         Socket client = new Socket ("host id", port);
         //cero flussi input/output
         DataInputStream is = new DataInputStream(client.getInputStream());

@@ -9,7 +9,15 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import static java.lang.System.in;
+import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -19,6 +27,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import jdk.internal.util.xml.impl.Input;
 
 /**
  *
@@ -27,7 +36,19 @@ import javax.swing.JTextField;
 public abstract class GUI implements ActionListener  {
     
         
-        public GUI(){
+    
+    
+            
+        
+        public GUI() throws IOException{
+            
+        
+            
+
+        
+                
+            
+            
         //Creating the Frame
         JFrame frame = new JFrame("Chat Frame");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,15 +69,17 @@ public abstract class GUI implements ActionListener  {
         JPanel panel = new JPanel(); // the panel is not visible in output
         JLabel id_utente = new JLabel("metti il tuo nickname");
         JTextField tf = new JTextField(20); // accepts upto 20 characters
+        String nome = tf.getText();
         JButton send = new JButton("registra");
         send.addActionListener (new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf.setText("       ");
+                String messaggio_invio = tf.getText();               
                 send.setText("invia");
+                System.out.print(messaggio_invio); 
                 id_utente.setText(" scrivi il tuo messaggio");
                 JFrame stanza = new JFrame("STANZA PRINCIPALE");
                 stanza.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                stanza.setSize(800, 800);
+                stanza.setSize(1000, 1000);
                 //Creating the panel at bottom and adding components
                 JPanel panel = new JPanel(); // the panel is not visible in output
                 JLabel messaggio = new JLabel("messaggio");
@@ -76,11 +99,11 @@ public abstract class GUI implements ActionListener  {
                 
                 //action event pulsante invia messaggio
                 invia.addActionListener (new java.awt.event.ActionListener() {
-                public void actionPerformed(java.awt.event.ActionEvent evt) {
-                
-                String instring= ta.getText();
-                ta.setText("     ");
-                tf.setText("     ");
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        
+                     
+                        
+                        
                
             }
         });
@@ -91,8 +114,8 @@ public abstract class GUI implements ActionListener  {
         send.setBackground(Color.green);
         
         JButton reset = new JButton("Reset");
-        panel.add(id_utente); // Components Added using Flow Layout
-        panel.add(id_utente); // Components Added using Flow Layout
+        panel.add(id_utente); // Components Added 
+        panel.add(id_utente); // Components Added 
         panel.add(tf);
         panel.add(send);
         panel.add(reset);
@@ -107,9 +130,13 @@ public abstract class GUI implements ActionListener  {
         frame.setVisible(true);
 
         }
+        
+            
+      }
+    
+    
+    
 
-     
-    }
 
  
 

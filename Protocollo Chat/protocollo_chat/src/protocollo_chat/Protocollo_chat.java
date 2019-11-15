@@ -25,34 +25,11 @@ public class Protocollo_chat {
             public void actionPerformed(ActionEvent e) {
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
-        };
- } 
-       /** //creo il client
-        Socket client = new Socket ("host id", port);
-        //cero flussi input/output
-        DataInputStream is = new DataInputStream(client.getInputStream());
-        DataOutputStream os = new DataOutputStream (client.getOutputStream());
-        //ricezione trasmissione I/O
-        String line = is.readLine();
-        System.out.println(line);
-        
-        
-        //creo ciclo booleano
-        boolean valore = true;
-        while (valore){
-         if  OpCode = 1;
-        //gestisco gli opcode e la chiamate dei metodi
-        
-        
-        
-        if //utente disocnesso valore = false
-           valore=false;     
-        }
-        
-        //chiudo il client
-        client.close();
-        
-        
-    }
-    */
+        } ;
+           
+           
+                }
+   
 }
+        
+   

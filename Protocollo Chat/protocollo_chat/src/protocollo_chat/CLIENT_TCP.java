@@ -158,7 +158,7 @@ public class CLIENT_TCP extends javax.swing.JFrame{
        {    //tentivo di connessione al server
             stato.setText("attessa connessione ...");
             try
-            {
+            {   //creo socket con ip e porta
                 connection = new Socket(InetAddress.getByName(serverIP),port);
             }catch(IOException ioEception)
             {       //mancata connessione con apertura di pannello con avviso

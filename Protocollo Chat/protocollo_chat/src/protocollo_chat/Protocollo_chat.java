@@ -5,6 +5,7 @@
  */
 package protocollo_chat;
 
+import com.sun.security.ntlm.Client;
 import java.awt.event.ActionEvent;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -17,19 +18,17 @@ import java.net.Socket;
  */
 public class Protocollo_chat {
 
-   public static void main(String[] args) throws IOException {
-        
          
-        GUI prova = new GUI () {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        } ;
+         public static void main(String[] args) 
+    {
+        CLIENT_TCP client;
+        client = new CLIENT_TCP("127.0.0.1");
+        client.startRunning();
+    }
            
            
                 }
    
-}
+
         
    

@@ -5,13 +5,6 @@
  */
 package protocollo_chat;
 
-import com.sun.security.ntlm.Client;
-import java.awt.event.ActionEvent;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.net.Socket;
-
 /**
  *
  * @author 18868

@@ -5,9 +5,7 @@
  */
 package ServerTCP;
 
-import java.io.BufferedReader;
 import java.io.*;
-import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -72,7 +70,7 @@ public class ServerTCP {
         }
       }// end if statement
     }
-    catch(Exception ex) {
+    catch(IOException ex) {
     }
   }
 }

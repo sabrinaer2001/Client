@@ -50,6 +50,7 @@ public abstract class GUI implements ActionListener
         JButton send = new JButton("registra");
         send.addActionListener(new java.awt.event.ActionListener()
         {
+            @Override
             public void actionPerformed( java.awt.event.ActionEvent evt )
             {
 
@@ -81,6 +82,7 @@ public abstract class GUI implements ActionListener
                 //action event pulsante invia messaggio
                 invia.addActionListener(new java.awt.event.ActionListener()
                 {
+                    @Override
                     public void actionPerformed( java.awt.event.ActionEvent evt )
                     {
 

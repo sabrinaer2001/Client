@@ -72,6 +72,7 @@ public class CLIENT_TCP extends javax.swing.JFrame{
         
         //action listener, gestione eventi
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
@@ -81,6 +82,7 @@ public class CLIENT_TCP extends javax.swing.JFrame{
 
         jButton1.setText("Invio");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
@@ -90,6 +92,7 @@ public class CLIENT_TCP extends javax.swing.JFrame{
 
         chatArea.setColumns(20);
         chatArea.setRows(5);
+        chatArea.setEditable(false);
         jScrollPane1.setViewportView(chatArea);
 
         jPanel1.add(jScrollPane1);

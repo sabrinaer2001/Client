@@ -3,7 +3,7 @@
  * To change thismessaggiolate file, choose Tools |messaggiolates
  * and open themessaggiolate in the editor.
  */
-package protocollo_chat;
+package GUI;
 
 import java.io.*;
 import java.net.*;

@@ -38,7 +38,6 @@ public class Registration {
     public byte[] getRegistrationPacket()
     {
         int i1 = 0;
-        int i2 = 0;
         byte[] packet = new byte[2048];
         byte[] byteAlias = this.alias.getBytes();
         byte[] byteTopic = this.topic.getBytes();
@@ -50,13 +49,10 @@ public class Registration {
         packet[i1++] = 0;
         
         //alias
-        for(byte b : this.alias.getBytes())
+        for(byte b : byteAlias)
         {
-            packet[i1++] = byteAlias[i2++];
+            packet[i1++] = b;
         }
-        
-        //azzero il contatore per riutilizzarlo per topic
-        i2 = 0;
         
         //0
         packet[i1++] = 0;
@@ -64,7 +60,7 @@ public class Registration {
         //topic optional
         for(byte b : byteTopic)
         {
-            packet[i1++] = byteTopic[i2++];
+            packet[i1++] = b;
         }
         
         //0

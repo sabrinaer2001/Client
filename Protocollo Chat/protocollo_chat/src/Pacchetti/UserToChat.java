@@ -45,8 +45,8 @@ public class UserToChat {
 
         int i = 0;
 
-        byte[] packet = new byte[2048];
         byte[] byteMessage = this.message.getBytes();
+        byte[] packet = new byte[byteMessage.length+4];
         
         /*HEADER*/
         

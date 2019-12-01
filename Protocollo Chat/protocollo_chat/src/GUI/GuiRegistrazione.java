@@ -5,6 +5,10 @@
  */
 package GUI;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -12,13 +16,20 @@ package GUI;
  */
 public class GuiRegistrazione extends javax.swing.JFrame
 {
-
+    private String username;
+    private String topic;
+    private GuiNuova home;
+    private Connessione c;
     /**
      * Creates new form GuiRegistrazione
+     * @param g
+     * @param c
      */
-    public GuiRegistrazione()
+    public GuiRegistrazione(GuiNuova g, Connessione c)
     {
         initComponents();
+        home = g;
+        this.c = c;
     }
 
     /**
@@ -139,57 +150,20 @@ public class GuiRegistrazione extends javax.swing.JFrame
 
     private void buttonRegistratiActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_buttonRegistratiActionPerformed
     {//GEN-HEADEREND:event_buttonRegistratiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_buttonRegistratiActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main( String args[] )
-    {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        this.username = TextFieldAlias.getText();
+        this.topic = TextFieldTopic.getText();
         try
         {
-            for( javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels() )
-            {
-                if( "Nimbus".equals(info.getName()) )
-                {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
+            c.InviaRegistrazione(username, topic);
         }
-        catch( ClassNotFoundException ex )
+        catch( IOException ex )
         {
-            java.util.logging.Logger.getLogger(GuiRegistrazione.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(GuiRegistrazione.class.getName()).log(Level.SEVERE, null, ex);
         }
-        catch( InstantiationException ex )
-        {
-            java.util.logging.Logger.getLogger(GuiRegistrazione.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch( IllegalAccessException ex )
-        {
-            java.util.logging.Logger.getLogger(GuiRegistrazione.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        catch( javax.swing.UnsupportedLookAndFeelException ex )
-        {
-            java.util.logging.Logger.getLogger(GuiRegistrazione.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable()
-        {
-            public void run()
-            {
-                new GuiRegistrazione().setVisible(true);
-            }
-        });
-    }
+        home.setEnabled(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_buttonRegistratiActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TextFieldAlias;

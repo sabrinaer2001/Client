@@ -172,9 +172,10 @@ public class GuiNuova extends javax.swing.JFrame
             else
             {
                 labelStato.setText("Connected to: " + connessione.getServerIP());
-                GuiRegistrazione gr = new GuiRegistrazione();
+                GuiRegistrazione gr = new GuiRegistrazione(this, connessione);
                 gr.setVisible(true);
                 this.setEnabled(false);
+                
             }
         }
         catch( IOException ex )

@@ -59,9 +59,9 @@ public class UserToUser{
 
         int i = 0;
 
-        byte[] packet = new byte[2048];
         byte[] byteDestinationAlias = this.destinationAlias.getBytes();
         byte[] byteMessage = this.message.getBytes();
+        byte[] packet = new byte[5+byteDestinationAlias.length+byteMessage.length];
         
         /*HEADER*/
         

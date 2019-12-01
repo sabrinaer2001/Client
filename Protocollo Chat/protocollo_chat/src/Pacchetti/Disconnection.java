@@ -36,7 +36,7 @@ public class Disconnection {
     {
 
         int i1 = 0;
-        byte[] packet = new byte[2048];
+        byte[] packet = new byte[3];
         
         //opcode
         packet[i1++] = 11;

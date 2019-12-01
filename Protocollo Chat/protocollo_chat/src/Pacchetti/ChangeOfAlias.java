@@ -60,9 +60,9 @@ public class ChangeOfAlias {
 
 
         int i = 0;
-        byte[] packet = new byte[2048];
         byte[] byteOldAlias = this.oldAlias.getBytes();
         byte[] byteNewAlias = this.newAlias.getBytes();
+        byte[] packet = new byte[byteOldAlias.length+byteNewAlias.length+5];
 
         //OPcode
         packet[i++] = 18;

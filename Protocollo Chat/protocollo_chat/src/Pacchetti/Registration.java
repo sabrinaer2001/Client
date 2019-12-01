@@ -37,9 +37,9 @@ public class Registration {
     {
         
         int i1 = 0;
-        byte[] packet = new byte[2048];
         byte[] byteAlias = this.alias.getBytes();
         byte[] byteTopic = this.topic.getBytes();
+        byte[] packet = new byte[byteAlias.length+byteTopic.length+4];
         
         //opcode
         packet[i1++] = 10;

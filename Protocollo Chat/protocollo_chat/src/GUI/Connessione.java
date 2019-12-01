@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Pacchetti.Registration;
 import java.io.*;
 import java.net.*;
 
@@ -15,31 +16,31 @@ import java.net.*;
  */
 public class Connessione
 {
-    private BufferedReader output;
-    private PrintWriter input;
+    private BufferedReader input;
+    private DataOutputStream output;
     private String messaggio = "";
     private String serverIP = "127.0.0.1";
     private Socket connection;
     private int serverPort = 53101;
 
-    public BufferedReader getOutput()
-    {
-        return output;
-    }
-
-    public void setOutput( BufferedReader output )
-    {
-        this.output = output;
-    }
-
-    public PrintWriter getInput()
+    public BufferedReader getInput()
     {
         return input;
     }
 
-    public void setInput( PrintWriter input )
+    public void setInput( BufferedReader input )
     {
         this.input = input;
+    }
+
+    public DataOutputStream getOutput()
+    {
+        return output;
+    }
+
+    public void setOutput( DataOutputStream output )
+    {
+        this.output = output;
     }
 
     public String getMessaggio()
@@ -81,11 +82,15 @@ public class Connessione
     {
         this.serverPort = serverPort;
     }
+
+    
     
     public int Connetti() throws IOException
     {   
         try{
-            connection = new Socket(serverIP,serverPort); 
+            connection = new Socket(serverIP,serverPort);
+            output = new DataOutputStream(connection.getOutputStream());
+            input = new BufferedReader(new InputStreamReader(connection.getInputStream()));
             
         }
         catch( IOException ioEception )
@@ -95,6 +100,12 @@ public class Connessione
             
         }
         return(1);
+    }
+    public void InviaRegistrazione(String alias, String topic) throws IOException
+    {
+        Registration r = new Registration(alias, topic);
+        byte [] packet = r.getRegistrationPacket();
+        output.write(packet);
     }
 
     

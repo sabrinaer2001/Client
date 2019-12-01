@@ -47,8 +47,10 @@ public class Protocollo_chat {
         {
             @Override
             public void run()
-            {
+            {   
+                //istanzia la gui
                 GuiNuova client = new GuiNuova();
+                //fa apparire la gui
                 client.setVisible(true);
                 
             }

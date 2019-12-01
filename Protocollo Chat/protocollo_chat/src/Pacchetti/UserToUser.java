@@ -1,6 +1,6 @@
 package Pacchetti;
 
-// |                        HEADER	                      |     PAYLOAD      |
+// |                        HEADER	         |          PAYLOAD          |
 // |   1 byte    |  2 bytes  |      string       | 1 byte | string  | 1 byte |
 // | opcode (01) | sender id | destination alias |    0   | message |	 0   |
 

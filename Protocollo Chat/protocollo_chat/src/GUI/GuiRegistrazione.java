@@ -18,7 +18,9 @@ public class GuiRegistrazione extends javax.swing.JFrame
 {
     private String username;
     private String topic;
+    //serve per avere l'istanza della gui precedente in modo da poterla riaprire o riattivare
     private GuiNuova home;
+    //istanza della connessione con il server
     private Connessione c;
     /**
      * Creates new form GuiRegistrazione
@@ -28,7 +30,9 @@ public class GuiRegistrazione extends javax.swing.JFrame
     public GuiRegistrazione(GuiNuova g, Connessione c)
     {
         initComponents();
+        //imposta la gui precedente
         home = g;
+        //imposta l'istanza della connessione con il server
         this.c = c;
     }
 
@@ -150,17 +154,22 @@ public class GuiRegistrazione extends javax.swing.JFrame
 
     private void buttonRegistratiActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_buttonRegistratiActionPerformed
     {//GEN-HEADEREND:event_buttonRegistratiActionPerformed
+        //prende lo username digitato
         this.username = TextFieldAlias.getText();
+        //prende il topic digitato
         this.topic = TextFieldTopic.getText();
         try
-        {
+        {   
+            //invia la richiesta di registrazione
             c.InviaRegistrazione(username, topic);
         }
         catch( IOException ex )
         {
             Logger.getLogger(GuiRegistrazione.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //riattiva la gui precedente
         home.setEnabled(true);
+        //chiude la gui corrente
         this.setVisible(false);
         
     }//GEN-LAST:event_buttonRegistratiActionPerformed

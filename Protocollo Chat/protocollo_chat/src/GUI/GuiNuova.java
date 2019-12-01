@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
  */
 public class GuiNuova extends javax.swing.JFrame
 {
-    
+    //istanza della connessione con il server
     private Connessione connessione;
     /**
      * Creates new form GuiNuova
@@ -133,10 +133,11 @@ public class GuiNuova extends javax.swing.JFrame
                     .addComponent(TextFieldMessaggio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonInvio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonConnessione)
-                    .addComponent(jLabel2)
-                    .addComponent(labelStato, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelStato, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ButtonConnessione)
+                        .addComponent(jLabel2)))
                 .addGap(122, 122, 122))
         );
 
@@ -163,17 +164,26 @@ public class GuiNuova extends javax.swing.JFrame
     {//GEN-HEADEREND:event_ButtonConnessioneActionPerformed
         connessione = new Connessione();
         try
-        {
+        {   
+            //se la connessione da esito negativo
             if(connessione.Connetti() == 0)            
-            {
+            {   
+                
+                //fa aprire un poup
                 JOptionPane.showMessageDialog(null, "Il server è giù", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
                 
             }
+            //se da esito positivo
             else
-            {
+            {   
+                
+                //imposta lo stato
                 labelStato.setText("Connected to: " + connessione.getServerIP());
+                //istanzia la gui per la registrazione
                 GuiRegistrazione gr = new GuiRegistrazione(this, connessione);
+                //fa apparire la gui per la registrazione
                 gr.setVisible(true);
+                //disabilita la gui corrente
                 this.setEnabled(false);
                 
             }

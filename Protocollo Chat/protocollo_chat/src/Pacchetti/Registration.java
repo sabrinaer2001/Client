@@ -37,6 +37,7 @@ public class Registration {
     
     public byte[] getRegistrationPacket()
     {
+        
         int i1 = 0;
         byte[] packet = new byte[2048];
         byte[] byteAlias = this.alias.getBytes();

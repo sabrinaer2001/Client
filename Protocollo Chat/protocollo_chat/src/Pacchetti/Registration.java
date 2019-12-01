@@ -1,13 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Pacchetti;
+
+// |    1 byte	   |    1 byte	   | string	| 1 byte |	    string      | 1 byte |
+// | opcode ( 10 ) | version ( 0 ) | alias	|    0	 | topic (optional) |	 0   |
 
 /**
  *
- * @author 5ei
+ * @author JellyLama
  */
 public class Registration {
     

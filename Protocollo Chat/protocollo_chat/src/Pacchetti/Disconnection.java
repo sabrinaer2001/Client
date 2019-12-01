@@ -1,18 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package Pacchetti;
+
+// |    1 byte	   | 2 bytes |
+// | opcode ( 11 ) |	id   |
 
 /**
  *
  * @author JellyLama
  */
 public class Disconnection {
-/*1 byte	2 bytes
-opcode ( 11 )	id*/
+
     private byte[] id;
 
     /**

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change thismessaggiolate file, choose Tools |messaggiolates
- * and open themessaggiolate in the editor.
- */
 package GUI;
 
 import java.io.*;

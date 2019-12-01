@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
+import java.awt.Color;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -77,11 +73,14 @@ public class GuiNuova extends javax.swing.JFrame
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Stato:");
 
+        labelStato.setBackground(new java.awt.Color(204, 204, 204));
+        labelStato.setForeground(new java.awt.Color(255, 0, 0));
+        labelStato.setText("non connesso");
         labelStato.setMaximumSize(new java.awt.Dimension(33, 16));
         labelStato.setMinimumSize(new java.awt.Dimension(33, 16));
 
         ButtonConnessione.setBackground(new java.awt.Color(204, 204, 204));
-        ButtonConnessione.setText("Connessione al server");
+        ButtonConnessione.setText("Connetti");
         ButtonConnessione.setToolTipText("");
         ButtonConnessione.addActionListener(new java.awt.event.ActionListener()
         {
@@ -108,13 +107,13 @@ public class GuiNuova extends javax.swing.JFrame
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(ButtonConnessione)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(labelStato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelStato, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(TextFieldMessaggio, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -133,11 +132,10 @@ public class GuiNuova extends javax.swing.JFrame
                     .addComponent(TextFieldMessaggio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonInvio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelStato, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ButtonConnessione)
-                        .addComponent(jLabel2)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ButtonConnessione)
+                    .addComponent(jLabel2)
+                    .addComponent(labelStato, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(122, 122, 122))
         );
 
@@ -162,37 +160,55 @@ public class GuiNuova extends javax.swing.JFrame
 
     private void ButtonConnessioneActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ButtonConnessioneActionPerformed
     {//GEN-HEADEREND:event_ButtonConnessioneActionPerformed
-        connessione = new Connessione();
-        try
-        {   
-            //se la connessione da esito negativo
-            if(connessione.Connetti() == 0)            
-            {   
-                
-                //fa aprire un poup
-                JOptionPane.showMessageDialog(null, "Il server è giù", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
-                
-            }
-            //se da esito positivo
-            else
-            {   
-                
-                //imposta lo stato
-                labelStato.setText("Connected to: " + connessione.getServerIP());
-                //istanzia la gui per la registrazione
-                GuiRegistrazione gr = new GuiRegistrazione(this, connessione);
-                //fa apparire la gui per la registrazione
-                gr.setVisible(true);
-                //disabilita la gui corrente
-                this.setEnabled(false);
-                
-            }
-        }
-        catch( IOException ex )
+        if("Connetti".equals(ButtonConnessione.getText()))            
         {
-            Logger.getLogger(GuiNuova.class.getName()).log(Level.SEVERE, null, ex);
+            connessione = new Connessione();
+            try
+            {   
+
+                //se la connessione da esito negativo
+                if(connessione.Connetti() == 0)            
+                {   
+
+                    //fa aprire un poup
+                    JOptionPane.showMessageDialog(null, "Il server è giù", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+
+                }
+                //se da esito positivo
+                else
+                {   
+                    ButtonConnessione.setText("Disconnetti");
+                    //imposta lo stato
+                    labelStato.setText("Connected to: " + connessione.getServerIP());
+                    labelStato.setForeground(new Color(0,0,255));
+                    //istanzia la gui per la registrazione
+                    GuiRegistrazione gr = new GuiRegistrazione(this, connessione);
+                    //fa apparire la gui per la registrazione
+                    gr.setVisible(true);
+                    //disabilita la gui corrente
+                    this.setEnabled(false);
+
+                }
+            }
+            catch( IOException ex )
+            {
+                Logger.getLogger(GuiNuova.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        
+        else
+        {
+            try
+            {
+                connessione.InviaDisconnessione();
+                ButtonConnessione.setText("Connetti");
+                labelStato.setText("non connesso");
+                
+            }
+            catch( IOException ex )
+            {
+                Logger.getLogger(GuiNuova.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_ButtonConnessioneActionPerformed
 
     //main

@@ -132,7 +132,7 @@ public class GuiNuova extends javax.swing.JFrame
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextFieldMessaggio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonInvio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonConnessione)
                     .addComponent(jLabel2)
@@ -148,9 +148,7 @@ public class GuiNuova extends javax.swing.JFrame
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -169,16 +167,21 @@ public class GuiNuova extends javax.swing.JFrame
             if(connessione.Connetti() == 0)            
             {
                 JOptionPane.showMessageDialog(null, "Il server è giù", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+                
             }
             else
             {
                 labelStato.setText("Connected to: " + connessione.getServerIP());
+                GuiRegistrazione gr = new GuiRegistrazione();
+                gr.setVisible(true);
+                this.setEnabled(false);
             }
         }
         catch( IOException ex )
         {
             Logger.getLogger(GuiNuova.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }//GEN-LAST:event_ButtonConnessioneActionPerformed
 
     //main

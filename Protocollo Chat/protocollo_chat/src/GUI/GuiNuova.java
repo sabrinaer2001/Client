@@ -219,7 +219,7 @@ public class GuiNuova extends javax.swing.JFrame
         {
             this.connessione.UsertoChat(msg);
             this.TextFieldMessaggio.setText("");
-            this.TextAreaMessaggi.append(msg + "\n");
+            this.TextAreaMessaggi.append(gr.getTextFieldAlias().getText() + ": " + msg + "\n");
         }
         catch( Exception ex )
         {

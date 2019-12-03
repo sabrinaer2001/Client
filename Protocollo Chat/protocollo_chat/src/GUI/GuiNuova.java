@@ -1,6 +1,9 @@
 package GUI;
 
 import java.awt.Color;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -165,7 +168,7 @@ public class GuiNuova extends javax.swing.JFrame
     {//GEN-HEADEREND:event_ButtonConnessioneActionPerformed
         if("Connetti".equals(ButtonConnessione.getText()))
         {
-            connessione = new Connessione();
+            this.connessione = new Connessione();
 
             //istanzia la gui per la registrazione
             GuiRegistrazione gr = new GuiRegistrazione(this, connessione);
@@ -174,54 +177,21 @@ public class GuiNuova extends javax.swing.JFrame
             //disabilita la gui corrente
             this.setEnabled(false);
         }
-        //<editor-fold defaultstate="collapsed" desc="comment">
-        /*            try
-        {
-
-            //se la connessione da esito negativo
-            if(connessione.Connetti() == 0)
-            {
-
-                //fa aprire un poup
-                JOptionPane.showMessageDialog(null, "Il server è giù", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
-
-            }
-            //se da esito positivo
-            else
-            {
-                ButtonConnessione.setText("Disconnetti");
-                //imposta lo stato
-                labelStato.setText("Connected to: " + connessione.getServerIP());
-                labelStato.setForeground(new Color(0,0,255));
-                //istanzia la gui per la registrazione
-                GuiRegistrazione gr = new GuiRegistrazione(this, connessione);
-                //fa apparire la gui per la registrazione
-                gr.setVisible(true);
-                //disabilita la gui corrente
-                this.setEnabled(false);
-
-            }
-        }
-        catch( IOException ex )
-        {
-            Logger.getLogger(GuiNuova.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }
-        else
+        else if("Disconnetti".equals(ButtonConnessione.getText()))
         {
             try
             {
-                connessione.InviaDisconnessione();
-                ButtonConnessione.setText("Connetti");
-                labelStato.setText("non connesso");
-
+                this.connessione.disconnetti();
+                this.ButtonConnessione.setText("Connetti");
+                this.labelStato.setText("non connesso");
+                this.labelStato.setForeground(Color.red);
+                this.labelProfile.setText("");
             }
             catch( IOException ex )
             {
                 Logger.getLogger(GuiNuova.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }*/
-        //</editor-fold>
+        }
     }//GEN-LAST:event_ButtonConnessioneActionPerformed
 
     private void TextFieldMessaggioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_TextFieldMessaggioActionPerformed

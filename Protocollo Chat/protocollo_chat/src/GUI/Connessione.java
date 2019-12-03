@@ -1,6 +1,10 @@
 package GUI;
 
+import Pacchetti.ChangeOfAlias;
+import Pacchetti.Disconnection;
 import Pacchetti.Registration;
+import Pacchetti.UserToChat;
+import Pacchetti.UserToUser;
 import java.io.*;
 import java.net.*;
 import java.util.Arrays;
@@ -15,14 +19,10 @@ public class Connessione
     private BufferedOutputStream output;
     private String messaggio = "";
     private String serverIP = "127.0.0.1";
-    private Socket connection;
+    private Socket socket;
     private int serverPort = 53101;
     private byte [] id;
 
-    
-
-
-       
     public String getMessaggio()
     {
         return messaggio;
@@ -59,34 +59,14 @@ public class Connessione
     {
         this.id = id;
     }
-
-    /*    //avvia la connessione con il server
-    public int Connetti() throws IOException
-    {
-    try{
-    connection = new Socket(serverIP,serverPort);
-    output = new BufferedOutputStream(connection.getOutputStream());
-    input = new DataInputStream(connection.getInputStream());
-    
-    }
-    catch( IOException ioEception )
-    {
-    //esito negativo
-    return(0);
-    
-    }
-    //esito positivo
-    return(1);
-    }*/
     
     //invia il pacchetto di registrazione
     public int ConnettiInviaRegistrazione(String alias, String topic) throws IOException
     {   
         try{
-            connection = new Socket(serverIP,serverPort);
-            /*this.connection = c;*/
-            output = new BufferedOutputStream(connection.getOutputStream());
-            input= new DataInputStream(connection.getInputStream());
+            socket = new Socket(serverIP,serverPort);
+            output = new BufferedOutputStream(socket.getOutputStream());
+            input= new DataInputStream(socket.getInputStream());
             
             //istanzia il pacchetto di registrazione
             Registration r = new Registration(alias, topic);
@@ -106,8 +86,6 @@ public class Connessione
             //seleziona l'id
             this.id = Arrays.copyOfRange(ack, 1, 3);
 
-            System.out.println(Arrays.toString(id));
-
             //esito positivo
             return(1);
         }
@@ -118,14 +96,53 @@ public class Connessione
             
         }
     }
-    /*    public void InviaDisconnessione() throws IOException
-    {
-    //istanzia il pacchetto di registrazione
-    Disconnection r = new Disconnection(this.id);
-    //crea il pacchetto di registrazione
-    byte [] packet = r.getDisconnectionPacket();
-    //invia il pacchetto
-    output.write(packet);
     
-    }*/
+    public void disconnetti() throws IOException
+    {   
+        //istanzia il pacchetto di disconnessione
+        Disconnection d = new Disconnection(this.id);
+
+        //crea il pacchetto di disconnessione
+        byte [] packet = d.getDisconnectionPacket();
+
+        //invia il pacchetto di disconnessione
+        output.write(packet);
+        //svuota il buffer
+        output.flush();
+
+        this.input.close();
+        this.output.close();
+        this.socket.close();
+    }
+    
+    public void UsertoUser(String destinationAlias, String message) throws Exception
+    {
+        //istanzia il pacchetto User to User o il pacchetto 01
+        UserToUser utu = new UserToUser(destinationAlias, message, this.id);
+        //crea il pacchetto UsertoUser
+        byte[] packet = utu.getUsertoUserPacket();
+        //invia il pacchetto
+        output.write(packet);
+        output.flush();
+    }
+    
+    public void UsertoChat(String m) throws Exception{
+        //istanzia il pacchetto User to Chat o il pacchetto 05
+        UserToChat utc = new UserToChat(m, this.id);
+        //crea il pacchetto UsertoChat
+        byte[] packet = utc.getUsertoChatPacket();
+        //invia il pacchetto
+        output.write(packet);
+        output.flush();
+    }
+    
+    public void ChangeofAlias(String oldA, String newA) throws Exception{
+        //istanzia il pacchetto Change of Alias o il pacchetto 18
+        ChangeOfAlias coa = new ChangeOfAlias(oldA, newA, this.id);
+        //crea il pacchetto ChangeofAlias
+        byte[] packet = coa.getCHANGEofALIAS();
+        //invia il pacchetto
+        output.write(packet);
+        output.flush();
+    }
 }

@@ -55,7 +55,7 @@ public class UserToUser{
         this.senderId = senderId;
     }
 
-    public void getUsertoUserPacket() {
+    public byte [] getUsertoUserPacket() {
 
         int i = 0;
 
@@ -92,6 +92,8 @@ public class UserToUser{
 
         // 1 byte 0
         packet[i++] = 0;
+        
+        return packet;
     }
 
 }

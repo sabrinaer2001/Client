@@ -12,12 +12,11 @@ package Pacchetti;
 public class UserToChat {
     private String message;
     private byte[] senderId;
-    
-    /**
-     * @return the message
-     */
-    public String getMessage() {
-        return message;
+
+    public UserToChat( String message, byte[] senderId )
+    {
+        this.message = message;
+        this.senderId = senderId;
     }
 
     /**
@@ -41,7 +40,7 @@ public class UserToChat {
         this.senderId = senderId;
     }
 
-    public void getUsertoChatPacket() {
+    public byte [] getUsertoChatPacket() {
 
         int i = 0;
 
@@ -68,6 +67,7 @@ public class UserToChat {
         // 0
         packet[i++] = 0;
         
+        return packet;
     }
     
 }

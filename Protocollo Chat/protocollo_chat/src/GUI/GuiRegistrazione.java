@@ -199,7 +199,6 @@ public class GuiRegistrazione extends javax.swing.JFrame
             Logger.getLogger(GuiRegistrazione.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
     }//GEN-LAST:event_buttonRegistratiActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosed

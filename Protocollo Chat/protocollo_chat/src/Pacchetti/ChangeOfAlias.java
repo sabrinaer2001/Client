@@ -13,11 +13,11 @@ public class ChangeOfAlias {
     private String newAlias;
     private byte[] senderId;
 
-    /**
-     * @return the oldAlias
-     */
-    public String getOldAlias() {
-        return oldAlias;
+    public ChangeOfAlias( String oldAlias, String newAlias, byte[] senderId )
+    {
+        this.oldAlias = oldAlias;
+        this.newAlias = newAlias;
+        this.senderId = senderId;
     }
 
     /**
@@ -55,7 +55,7 @@ public class ChangeOfAlias {
         this.senderId = senderId;
     }
     
-    public void getCHANGEofALIAS(){
+    public byte [] getCHANGEofALIAS(){
 
 
 
@@ -89,6 +89,8 @@ public class ChangeOfAlias {
         
         //1 byte a 0
         packet[i++] = 0;
+        
+        return packet;
     }
 
 }

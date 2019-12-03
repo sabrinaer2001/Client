@@ -3,16 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/karim/Documents/NetBeansProjects/Client/Protocollo%20Chat/protocollo_chat/src/GUI/Connessione.java</file>
             <file>file:/C:/Users/karim/Documents/NetBeansProjects/Client/Protocollo%20Chat/protocollo_chat/src/GUI/Protocollo_chat.java</file>
+            <file>file:/C:/Users/karim/Documents/NetBeansProjects/Client/Protocollo%20Chat/protocollo_chat/src/GUI/Connessione.java</file>
             <file>file:/C:/Users/karim/Documents/NetBeansProjects/Client/Protocollo%20Chat/protocollo_chat/src/GUI/GuiNuova.java</file>
-            <file>file:/C:/Users/karim/Documents/NetBeansProjects/Client/Protocollo%20Chat/protocollo_chat/src/Pacchetti/UserToUser.java</file>
-            <file>file:/C:/Users/karim/Documents/NetBeansProjects/Client/Protocollo%20Chat/protocollo_chat/src/Pacchetti/ChangeOfAlias.java</file>
-            <file>file:/C:/Users/karim/Documents/NetBeansProjects/Client/Protocollo%20Chat/protocollo_chat/src/Pacchetti/Disconnection.java</file>
-            <file>file:/C:/Users/karim/Documents/NetBeansProjects/Client/Protocollo%20Chat/protocollo_chat/src/GUI/CLIENT_TCP.java</file>
             <file>file:/C:/Users/karim/Documents/NetBeansProjects/Client/Protocollo%20Chat/protocollo_chat/src/GUI/GuiRegistrazione.java</file>
-            <file>file:/C:/Users/karim/Documents/NetBeansProjects/Client/Protocollo%20Chat/protocollo_chat/src/Pacchetti/Registration.java</file>
-            <file>file:/C:/Users/karim/Documents/NetBeansProjects/Client/Protocollo%20Chat/protocollo_chat/src/Pacchetti/UserToChat.java</file>
         </group>
     </open-files>
 </project-private>

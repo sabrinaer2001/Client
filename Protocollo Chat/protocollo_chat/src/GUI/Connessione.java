@@ -80,12 +80,12 @@ public class Connessione
             output.flush();
 
             //riceve l'ack
-            byte[] ack = new byte[2];
+            byte[] ack = new byte[4 + alias.getBytes().length];
             input.read(ack);
 
             //seleziona l'id
             this.id = Arrays.copyOfRange(ack, 1, 3);
-
+            System.out.println(Arrays.toString(id));
             //esito positivo
             return(1);
         }
@@ -109,16 +109,16 @@ public class Connessione
         output.write(packet);
         //svuota il buffer
         output.flush();
-
+        
         this.input.close();
         this.output.close();
         this.socket.close();
     }
     
-    public void UsertoUser(String destinationAlias, String message) throws Exception
+    public void UsertoUser(String dstAlias, String message) throws Exception
     {
         //istanzia il pacchetto User to User o il pacchetto 01
-        UserToUser utu = new UserToUser(destinationAlias, message, this.id);
+        UserToUser utu = new UserToUser(dstAlias, message, this.id);
         //crea il pacchetto UsertoUser
         byte[] packet = utu.getUsertoUserPacket();
         //invia il pacchetto

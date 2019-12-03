@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 
 /**
@@ -189,6 +190,12 @@ public class GuiRegistrazione extends javax.swing.JFrame
                 //riattiva la gui precedente
                 home.setEnabled(true);
                 
+                home.setTextAreaMessaggi("Destination: " + this.TextFieldTopic.getText());
+                
+                home.setTextFieldMessaggio(true);
+                
+                home.setButtonInvio(true);
+                
                 //chiude la gui corrente
                 this.setVisible(false);
 
@@ -211,6 +218,28 @@ public class GuiRegistrazione extends javax.swing.JFrame
      
     }//GEN-LAST:event_formWindowClosing
 
+    public JTextField getTextFieldAlias()
+    {
+        return TextFieldAlias;
+    }
+
+    public void setTextFieldAlias( JTextField TextFieldAlias )
+    {
+        this.TextFieldAlias = TextFieldAlias;
+    }
+
+    public JTextField getTextFieldTopic()
+    {
+        return TextFieldTopic;
+    }
+
+    public void setTextFieldTopic( JTextField TextFieldTopic )
+    {
+        this.TextFieldTopic = TextFieldTopic;
+    }
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TextFieldAlias;
     private javax.swing.JTextField TextFieldTopic;

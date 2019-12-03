@@ -14,6 +14,7 @@ public class GuiNuova extends javax.swing.JFrame
 {
     //istanza della connessione con il server
     private Connessione connessione;
+    private GuiRegistrazione gr;
     /**
      * Creates new form GuiNuova
      */
@@ -48,6 +49,7 @@ public class GuiNuova extends javax.swing.JFrame
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
+        TextAreaMessaggi.setEditable(false);
         TextAreaMessaggi.setBackground(new java.awt.Color(255, 255, 255));
         TextAreaMessaggi.setColumns(20);
         TextAreaMessaggi.setRows(5);
@@ -55,6 +57,7 @@ public class GuiNuova extends javax.swing.JFrame
 
         TextFieldMessaggio.setBackground(new java.awt.Color(255, 255, 255));
         TextFieldMessaggio.setForeground(new java.awt.Color(0, 0, 0));
+        TextFieldMessaggio.setEnabled(false);
         TextFieldMessaggio.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -66,6 +69,14 @@ public class GuiNuova extends javax.swing.JFrame
         ButtonInvio.setBackground(new java.awt.Color(51, 51, 51));
         ButtonInvio.setForeground(new java.awt.Color(255, 255, 255));
         ButtonInvio.setText("Invio");
+        ButtonInvio.setEnabled(false);
+        ButtonInvio.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ButtonInvioActionPerformed(evt);
+            }
+        });
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Scrivi il messaggio:");
@@ -118,7 +129,7 @@ public class GuiNuova extends javax.swing.JFrame
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(labelProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
                         .addComponent(ButtonInvio)
                         .addGap(8, 8, 8))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -171,7 +182,7 @@ public class GuiNuova extends javax.swing.JFrame
             this.connessione = new Connessione();
 
             //istanzia la gui per la registrazione
-            GuiRegistrazione gr = new GuiRegistrazione(this, connessione);
+            gr = new GuiRegistrazione(this, connessione);
             //fa apparire la gui per la registrazione
             gr.setVisible(true);
             //disabilita la gui corrente
@@ -186,6 +197,8 @@ public class GuiNuova extends javax.swing.JFrame
                 this.labelStato.setText("non connesso");
                 this.labelStato.setForeground(Color.red);
                 this.labelProfile.setText("");
+                this.TextFieldMessaggio.setEnabled(false);
+                this.ButtonInvio.setEnabled(false);
             }
             catch( IOException ex )
             {
@@ -198,6 +211,21 @@ public class GuiNuova extends javax.swing.JFrame
     {//GEN-HEADEREND:event_TextFieldMessaggioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TextFieldMessaggioActionPerformed
+
+    private void ButtonInvioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ButtonInvioActionPerformed
+    {//GEN-HEADEREND:event_ButtonInvioActionPerformed
+        String msg = this.TextFieldMessaggio.getText();
+        try
+        {
+            this.connessione.UsertoChat(msg);
+            this.TextFieldMessaggio.setText("");
+            this.TextAreaMessaggi.append(msg + "\n");
+        }
+        catch( Exception ex )
+        {
+            Logger.getLogger(GuiNuova.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonInvioActionPerformed
     
     public void setLabelStatoColor(Color c)
     {
@@ -214,6 +242,18 @@ public class GuiNuova extends javax.swing.JFrame
     public void setButtonConnessioneText(String s)
     {
         this.ButtonConnessione.setText(s);
+    }
+    public void setButtonInvio(Boolean b)
+    {
+        this.ButtonInvio.setEnabled(b);
+    }
+    public void setTextAreaMessaggi(String s)
+    {
+        this.TextAreaMessaggi.append(s+"\n");
+    }
+    public void setTextFieldMessaggio(boolean b)
+    {
+        this.TextFieldMessaggio.setEnabled(b);
     }
     //main
                

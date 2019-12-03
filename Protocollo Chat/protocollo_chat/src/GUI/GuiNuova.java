@@ -1,10 +1,6 @@
 package GUI;
 
 import java.awt.Color;
-import java.io.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 
 /**
@@ -43,6 +39,7 @@ public class GuiNuova extends javax.swing.JFrame
         jLabel2 = new javax.swing.JLabel();
         labelStato = new javax.swing.JLabel();
         ButtonConnessione = new javax.swing.JButton();
+        labelProfile = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +73,7 @@ public class GuiNuova extends javax.swing.JFrame
         labelStato.setBackground(new java.awt.Color(204, 204, 204));
         labelStato.setForeground(new java.awt.Color(255, 0, 0));
         labelStato.setText("non connesso");
+        labelStato.setIconTextGap(2);
         labelStato.setMaximumSize(new java.awt.Dimension(33, 16));
         labelStato.setMinimumSize(new java.awt.Dimension(33, 16));
 
@@ -90,35 +88,43 @@ public class GuiNuova extends javax.swing.JFrame
             }
         });
 
+        labelProfile.setBackground(new java.awt.Color(204, 204, 204));
+        labelProfile.setForeground(new java.awt.Color(0, 0, 255));
+        labelProfile.setIconTextGap(2);
+        labelProfile.setMaximumSize(new java.awt.Dimension(33, 16));
+        labelProfile.setMinimumSize(new java.awt.Dimension(33, 16));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())
+                                .addGap(12, 12, 12)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(ButtonConnessione)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(labelStato, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(TextFieldMessaggio, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ButtonInvio)
+                        .addGap(8, 8, 8))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ButtonConnessione)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelStato, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(TextFieldMessaggio, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ButtonInvio)))
-                        .addGap(0, 12, Short.MAX_VALUE))))
+                        .addGap(12, 12, 12)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 515, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, 0))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,69 +137,75 @@ public class GuiNuova extends javax.swing.JFrame
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextFieldMessaggio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonInvio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonConnessione)
                     .addComponent(jLabel2)
                     .addComponent(labelStato, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(122, 122, 122))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(labelProfile, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TextFieldMessaggioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_TextFieldMessaggioActionPerformed
-    {//GEN-HEADEREND:event_TextFieldMessaggioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextFieldMessaggioActionPerformed
-
     private void ButtonConnessioneActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ButtonConnessioneActionPerformed
     {//GEN-HEADEREND:event_ButtonConnessioneActionPerformed
-        if("Connetti".equals(ButtonConnessione.getText()))            
+        if("Connetti".equals(ButtonConnessione.getText()))
         {
             connessione = new Connessione();
-            try
-            {   
 
-                //se la connessione da esito negativo
-                if(connessione.Connetti() == 0)            
-                {   
+            //istanzia la gui per la registrazione
+            GuiRegistrazione gr = new GuiRegistrazione(this, connessione);
+            //fa apparire la gui per la registrazione
+            gr.setVisible(true);
+            //disabilita la gui corrente
+            this.setEnabled(false);
+        }
+        //<editor-fold defaultstate="collapsed" desc="comment">
+        /*            try
+        {
 
-                    //fa aprire un poup
-                    JOptionPane.showMessageDialog(null, "Il server è giù", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
-
-                }
-                //se da esito positivo
-                else
-                {   
-                    ButtonConnessione.setText("Disconnetti");
-                    //imposta lo stato
-                    labelStato.setText("Connected to: " + connessione.getServerIP());
-                    labelStato.setForeground(new Color(0,0,255));
-                    //istanzia la gui per la registrazione
-                    GuiRegistrazione gr = new GuiRegistrazione(this, connessione);
-                    //fa apparire la gui per la registrazione
-                    gr.setVisible(true);
-                    //disabilita la gui corrente
-                    this.setEnabled(false);
-
-                }
-            }
-            catch( IOException ex )
+            //se la connessione da esito negativo
+            if(connessione.Connetti() == 0)
             {
-                Logger.getLogger(GuiNuova.class.getName()).log(Level.SEVERE, null, ex);
+
+                //fa aprire un poup
+                JOptionPane.showMessageDialog(null, "Il server è giù", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+
             }
+            //se da esito positivo
+            else
+            {
+                ButtonConnessione.setText("Disconnetti");
+                //imposta lo stato
+                labelStato.setText("Connected to: " + connessione.getServerIP());
+                labelStato.setForeground(new Color(0,0,255));
+                //istanzia la gui per la registrazione
+                GuiRegistrazione gr = new GuiRegistrazione(this, connessione);
+                //fa apparire la gui per la registrazione
+                gr.setVisible(true);
+                //disabilita la gui corrente
+                this.setEnabled(false);
+
+            }
+        }
+        catch( IOException ex )
+        {
+            Logger.getLogger(GuiNuova.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
         else
         {
@@ -202,17 +214,39 @@ public class GuiNuova extends javax.swing.JFrame
                 connessione.InviaDisconnessione();
                 ButtonConnessione.setText("Connetti");
                 labelStato.setText("non connesso");
-                
+
             }
             catch( IOException ex )
             {
                 Logger.getLogger(GuiNuova.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
+        }*/
+        //</editor-fold>
     }//GEN-LAST:event_ButtonConnessioneActionPerformed
 
+    private void TextFieldMessaggioActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_TextFieldMessaggioActionPerformed
+    {//GEN-HEADEREND:event_TextFieldMessaggioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldMessaggioActionPerformed
+    
+    public void setLabelStatoColor(Color c)
+    {
+        this.labelStato.setForeground(c);
+    }
+    public void setLabelStatoText(String s)
+    {
+        this.labelStato.setText(s);
+    }
+    public void setLabelProfileText(String s)
+    {
+        this.labelProfile.setText(s);
+    }
+    public void setButtonConnessioneText(String s)
+    {
+        this.ButtonConnessione.setText(s);
+    }
     //main
-
+               
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonConnessione;
     private javax.swing.JButton ButtonInvio;
@@ -222,6 +256,7 @@ public class GuiNuova extends javax.swing.JFrame
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel labelProfile;
     private javax.swing.JLabel labelStato;
     // End of variables declaration//GEN-END:variables
 }

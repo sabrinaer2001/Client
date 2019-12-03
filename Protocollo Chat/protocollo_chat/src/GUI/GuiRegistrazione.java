@@ -1,8 +1,10 @@
 package GUI;
 
+import java.awt.Color;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -167,16 +169,36 @@ public class GuiRegistrazione extends javax.swing.JFrame
         try
         {   
             //invia la richiesta di registrazione
-            c.InviaRegistrazione(username, topic);
+            if(c.ConnettiInviaRegistrazione(username, topic) == 0)  //se da esito negativo
+            {
+                //apre un popup
+                JOptionPane.showMessageDialog(null, "Il server è giù", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+            }
+            else //se da esito positivo
+            {
+                //cambia il bottone nella home da registrati a disconnetti
+                home.setButtonConnessioneText("Disconnetti");
+                
+                //imposta lo stato
+                home.setLabelStatoColor(new Color(0,0,255));
+                home.setLabelStatoText("Connected to: " + c.getServerIP());
+                
+                //imposta il profilo
+                home.setLabelProfileText("Username: " + this.username);
+                
+                //riattiva la gui precedente
+                home.setEnabled(true);
+                
+                //chiude la gui corrente
+                this.setVisible(false);
+
+            }
         }
         catch( IOException ex )
         {
             Logger.getLogger(GuiRegistrazione.class.getName()).log(Level.SEVERE, null, ex);
         }
-        //riattiva la gui precedente
-        home.setEnabled(true);
-        //chiude la gui corrente
-        this.setVisible(false);
+
         
     }//GEN-LAST:event_buttonRegistratiActionPerformed
 

@@ -1,9 +1,9 @@
 package GUI;
 
-import Pacchetti.Disconnection;
 import Pacchetti.Registration;
 import java.io.*;
 import java.net.*;
+import java.util.Arrays;
 
 /**
  *
@@ -11,8 +11,8 @@ import java.net.*;
  */
 public class Connessione
 {   
-    private BufferedReader input;
-    private DataOutputStream output;
+    private DataInputStream input;
+    private BufferedOutputStream output;
     private String messaggio = "";
     private String serverIP = "127.0.0.1";
     private Socket connection;
@@ -20,24 +20,7 @@ public class Connessione
     private byte [] id;
 
     
-    public BufferedReader getInput()
-    {
-        return input;
-    }
-    public void setInput( BufferedReader input )
-    {
-        this.input = input;
-    }
 
-    
-    public DataOutputStream getOutput()
-    {
-        return output;
-    }
-    public void setOutput( DataOutputStream output )
-    {
-        this.output = output;
-    }
 
        
     public String getMessaggio()
@@ -58,17 +41,6 @@ public class Connessione
     {
         this.serverIP = serverIP;
     }
-
-        
-    public Socket getConnection()
-    {
-        return connection;
-    }
-    public void setConnection( Socket connection )
-    {
-        this.connection = connection;
-    }
-
        
     public int getServerPort()
     {
@@ -78,7 +50,6 @@ public class Connessione
     {
         this.serverPort = serverPort;
     }
-
     
     public byte[] getId()
     {
@@ -89,14 +60,56 @@ public class Connessione
         this.id = id;
     }
 
-    //avvia la connessione con il server
+    /*    //avvia la connessione con il server
     public int Connetti() throws IOException
+    {
+    try{
+    connection = new Socket(serverIP,serverPort);
+    output = new BufferedOutputStream(connection.getOutputStream());
+    input = new DataInputStream(connection.getInputStream());
+    
+    }
+    catch( IOException ioEception )
+    {
+    //esito negativo
+    return(0);
+    
+    }
+    //esito positivo
+    return(1);
+    }*/
+    
+    //invia il pacchetto di registrazione
+    public int ConnettiInviaRegistrazione(String alias, String topic) throws IOException
     {   
         try{
             connection = new Socket(serverIP,serverPort);
-            output = new DataOutputStream(connection.getOutputStream());
-            input = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            /*this.connection = c;*/
+            output = new BufferedOutputStream(connection.getOutputStream());
+            input= new DataInputStream(connection.getInputStream());
             
+            //istanzia il pacchetto di registrazione
+            Registration r = new Registration(alias, topic);
+
+            //crea il pacchetto di registrazione
+            byte [] packet = r.getRegistrationPacket();
+
+            //invia il pacchetto di registrazione
+            output.write(packet);
+            //svuota il buffer
+            output.flush();
+
+            //riceve l'ack
+            byte[] ack = new byte[2];
+            input.read(ack);
+
+            //seleziona l'id
+            this.id = Arrays.copyOfRange(ack, 1, 3);
+
+            System.out.println(Arrays.toString(id));
+
+            //esito positivo
+            return(1);
         }
         catch( IOException ioEception )
         {
@@ -104,33 +117,15 @@ public class Connessione
             return(0);
             
         }
-        //esito positivo
-        return(1);
     }
+    /*    public void InviaDisconnessione() throws IOException
+    {
+    //istanzia il pacchetto di registrazione
+    Disconnection r = new Disconnection(this.id);
+    //crea il pacchetto di registrazione
+    byte [] packet = r.getDisconnectionPacket();
+    //invia il pacchetto
+    output.write(packet);
     
-    //invia il pacchetto di registrazione
-    public void InviaRegistrazione(String alias, String topic) throws IOException
-    {    
-        //istanzia il pacchetto di registrazione
-        Registration r = new Registration(alias, topic);
-        //crea il pacchetto di registrazione
-        byte [] packet = r.getRegistrationPacket();
-        //invia il pacchetto
-        output.write(packet);
-        //riceve l'ack
-        /*        String strInput = this.input.readLine();
-        
-        System.out.println(strInput);*/
-        
-    }
-    public void InviaDisconnessione() throws IOException
-    {    
-        //istanzia il pacchetto di registrazione
-        Disconnection r = new Disconnection(this.id);
-        //crea il pacchetto di registrazione
-        byte [] packet = r.getDisconnectionPacket();
-        //invia il pacchetto
-        output.write(packet);
-        
-    }
+    }*/
 }

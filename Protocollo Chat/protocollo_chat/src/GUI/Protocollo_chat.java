@@ -5,12 +5,7 @@ package GUI;
  * @author 18868
  */
 public class Protocollo_chat {
-    /*public static void main(String[] args)
-    {
-    CLIENT_TCP client;
-    client = new CLIENT_TCP("127.0.0.1");
-    client.startRunning();
-    }*/
+
     public static void main( String args[] )
     {
         /* Set the Nimbus look and feel */
@@ -53,7 +48,3 @@ public class Protocollo_chat {
     }
 
 }
-   
-
-        
-   

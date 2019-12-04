@@ -167,43 +167,74 @@ public class GuiRegistrazione extends javax.swing.JFrame
         this.username = TextFieldAlias.getText();
         //prende il topic digitato
         this.topic = TextFieldTopic.getText();
-        try
-        {   
-            //invia la richiesta di registrazione
-            if(c.ConnettiInviaRegistrazione(username, topic) == 0)  //se da esito negativo
-            {
-                //apre un popup
-                JOptionPane.showMessageDialog(null, "Il server è giù", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
-            }
-            else //se da esito positivo
-            {
-                //cambia il bottone nella home da registrati a disconnetti
-                home.setButtonConnessioneText("Disconnetti");
-                
-                //imposta lo stato
-                home.setLabelStatoColor(new Color(0,0,255));
-                home.setLabelStatoText("Connected to: " + c.getServerIP());
-                
-                //imposta il profilo
-                home.setLabelProfileText("Username: " + this.username);
-                
-                //riattiva la gui precedente
-                home.setEnabled(true);
-                
-                home.setTextAreaMessaggi("Destination: " + this.TextFieldTopic.getText());
-                
-                home.setTextFieldMessaggio(true);
-                
-                home.setButtonInvio(true);
-                
-                //chiude la gui corrente
-                this.setVisible(false);
-
-            }
-        }
-        catch( IOException ex )
+        
+        if(this.username.length() > 6 && this.username.length() < 32 && !this.username.contains(" "))
         {
-            Logger.getLogger(GuiRegistrazione.class.getName()).log(Level.SEVERE, null, ex);
+            try
+            {   
+                //invia la richiesta di registrazione
+                if(c.ConnettiInviaRegistrazione(username, topic) == 0)  //se da esito negativo
+                {
+                    //apre un popup
+                    JOptionPane.showMessageDialog(null, "Il server è giù", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+                }
+                else //se da esito positivo
+                {
+                    //cambia il bottone nella home da registrati a disconnetti
+                    home.setButtonConnessioneText("Disconnetti");
+
+                    //imposta lo stato
+                    home.setLabelStatoColor(new Color(0,0,255));
+                    home.setLabelStatoText("Connected to: " + c.getServerIP());
+
+                    //imposta il profilo
+                    home.setLabelProfileText("Username: " + this.username);
+
+                    //riattiva la gui precedente
+                    home.setEnabled(true);
+
+                    home.setTextAreaMessaggi("Destination: " + this.TextFieldTopic.getText());
+
+                    home.setTextFieldMessaggio(true);
+
+                    home.setButtonInvio(true);
+
+                    //chiude la gui corrente
+                    this.setVisible(false);
+
+                }
+            }
+            catch( IOException ex )
+            {
+                Logger.getLogger(GuiRegistrazione.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
+        else if(this.username.length() > 32)
+        {
+            //apre un popup
+            JOptionPane.showMessageDialog(null, "Il nome utente è TROPPO LUNGO!  \nMAX 32 caratteri", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+            
+            //svuota il campo username 
+            TextFieldAlias.setText("");
+
+            
+        }
+        else if(this.username.length() < 6)
+        {
+            //apre un popup
+            JOptionPane.showMessageDialog(null, "Il nome utente è TROPPO CORTO!  \nMIN 6 caratteri", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+            
+            //svuota il campo username 
+            TextFieldAlias.setText("");
+        }
+        else if(this.username.contains(" "))
+        {
+            //apre un popup
+            JOptionPane.showMessageDialog(null, "Il nome utente CONTIENE SPAZI!  \nSpazi non permessi", "ATTENZIONE", JOptionPane.WARNING_MESSAGE); 
+            
+            //svuota il campo username 
+            TextFieldAlias.setText("");
         }
 
     }//GEN-LAST:event_buttonRegistratiActionPerformed

@@ -23,6 +23,36 @@ public class Connessione
     private int serverPort = 53101;
     private byte [] id;
 
+    public DataInputStream getInput()
+    {
+        return input;
+    }
+    public void setInput( DataInputStream input )
+    {
+        this.input = input;
+    }
+
+    
+    public BufferedOutputStream getOutput()
+    {
+        return output;
+    }
+    public void setOutput( BufferedOutputStream output )
+    {
+        this.output = output;
+    }
+
+    
+    public Socket getSocket()
+    {
+        return socket;
+    }
+    public void setSocket( Socket socket )
+    {
+        this.socket = socket;
+    }   
+    
+    
     public String getMessaggio()
     {
         return messaggio;
@@ -86,6 +116,7 @@ public class Connessione
             //seleziona l'id
             this.id = Arrays.copyOfRange(ack, 1, 3);
             System.out.println(Arrays.toString(id));
+            
             //esito positivo
             return(1);
         }

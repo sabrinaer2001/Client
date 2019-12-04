@@ -172,14 +172,20 @@ public class GuiRegistrazione extends javax.swing.JFrame
         {
             try
             {   
-                //invia la richiesta di registrazione
+                   //invia la richiesta di registrazione
                 if(c.ConnettiInviaRegistrazione(username, topic) == 0)  //se da esito negativo
                 {
                     //apre un popup
                     JOptionPane.showMessageDialog(null, "Il server è giù", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
                 }
                 else //se da esito positivo
-                {
+                {       
+                    //Avvia il Thread per la ricezione dei messaggi
+                    
+                    Ricezione r1 =new Ricezione(this.c.getInput(), this.c.getOutput(), this.c.getSocket(), this.home);  
+                    Thread t1 =new Thread(r1);  
+                    t1.start();
+                    
                     //cambia il bottone nella home da registrati a disconnetti
                     home.setButtonConnessioneText("Disconnetti");
 
@@ -192,11 +198,14 @@ public class GuiRegistrazione extends javax.swing.JFrame
 
                     //riattiva la gui precedente
                     home.setEnabled(true);
-
+                    
+                    //scrive il destinatario nella finestra della chat
                     home.setTextAreaMessaggi("Destination: " + this.TextFieldTopic.getText());
-
+                    
+                    //Abilita la scrittura di messaggi 
                     home.setTextFieldMessaggio(true);
-
+                    
+                    //Abilita il bottone per l'invio dei messaggi
                     home.setButtonInvio(true);
 
                     //chiude la gui corrente

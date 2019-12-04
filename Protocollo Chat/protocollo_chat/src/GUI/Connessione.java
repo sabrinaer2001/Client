@@ -18,7 +18,7 @@ public class Connessione
     private DataInputStream input;
     private BufferedOutputStream output;
     private String messaggio = "";
-    private String serverIP = "127.0.0.1";
+    private String serverIP = "192.168.1.7";
     private Socket socket;
     private int serverPort = 53101;
     private byte [] id;

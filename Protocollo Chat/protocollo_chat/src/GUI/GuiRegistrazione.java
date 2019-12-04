@@ -34,6 +34,26 @@ public class GuiRegistrazione extends javax.swing.JFrame
         this.c = c;
     }
 
+    public String getUsername()
+    {
+        return username;
+    }
+
+    public void setUsername( String username )
+    {
+        this.username = username;
+    }
+
+    public String getTopic()
+    {
+        return topic;
+    }
+
+    public void setTopic( String topic )
+    {
+        this.topic = topic;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,7 +72,6 @@ public class GuiRegistrazione extends javax.swing.JFrame
         jLabel2 = new javax.swing.JLabel();
         buttonRegistrati = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Registrazione");
         addWindowListener(new java.awt.event.WindowAdapter()
         {

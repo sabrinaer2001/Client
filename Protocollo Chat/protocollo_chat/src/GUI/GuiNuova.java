@@ -46,6 +46,7 @@ public class GuiNuova extends javax.swing.JFrame
         labelProfile = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Chat");
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -199,6 +200,7 @@ public class GuiNuova extends javax.swing.JFrame
                 this.labelProfile.setText("");
                 this.TextFieldMessaggio.setEnabled(false);
                 this.ButtonInvio.setEnabled(false);
+                this.TextAreaMessaggi.setText("");
             }
             catch( IOException ex )
             {
@@ -254,6 +256,15 @@ public class GuiNuova extends javax.swing.JFrame
     public void setTextFieldMessaggio(boolean b)
     {
         this.TextFieldMessaggio.setEnabled(b);
+    }
+    public String getAlias()
+    {
+        return this.gr.getUsername();
+    }
+    
+    public boolean socketClosed()
+    {
+        return connessione.getSocket().isClosed();
     }
     //main
                

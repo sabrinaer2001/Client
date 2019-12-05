@@ -132,7 +132,6 @@ public class GuiRegistrazione extends javax.swing.JFrame
 
         TextFieldServerIP.setBackground(new java.awt.Color(255, 255, 255));
         TextFieldServerIP.setForeground(new java.awt.Color(0, 0, 0));
-        TextFieldServerIP.setText(" ");
         TextFieldServerIP.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -141,7 +140,8 @@ public class GuiRegistrazione extends javax.swing.JFrame
             }
         });
 
-        ComboBoxIP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "127.0.0.1", "192.168.1.7" }));
+        ComboBoxIP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "127.0.0.1", "192.168.1.7" }));
+        ComboBoxIP.setSelectedItem("");
         ComboBoxIP.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -279,7 +279,7 @@ public class GuiRegistrazione extends javax.swing.JFrame
             }
             
         }
-        else if(" ".equals(this.TextFieldServerIP.getText()))
+        else if("".equals(this.TextFieldServerIP.getText()))
         {
             //apre un popup
             JOptionPane.showMessageDialog(null, "Digitare o scegliere un IP!", "ATTENZIONE", JOptionPane.WARNING_MESSAGE); 
@@ -288,17 +288,16 @@ public class GuiRegistrazione extends javax.swing.JFrame
         else if(this.username.length() > 32)
         {
             //apre un popup
-            JOptionPane.showMessageDialog(null, "Il nome utente è TROPPO LUNGO!  \nMAX 32 caratteri", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Il nome utente è TROPPO LUNGO! \nMAX 32 caratteri", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
             
             //svuota il campo username 
             TextFieldAlias.setText("");
 
-            
         }
         else if(this.username.length() < 6)
         {
             //apre un popup
-            JOptionPane.showMessageDialog(null, "Il nome utente è TROPPO CORTO!  \nMIN 6 caratteri", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Il nome utente è TROPPO CORTO! \nMIN 6 caratteri", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
             
             //svuota il campo username 
             TextFieldAlias.setText("");
@@ -306,7 +305,7 @@ public class GuiRegistrazione extends javax.swing.JFrame
         else if(this.username.contains(" "))
         {
             //apre un popup
-            JOptionPane.showMessageDialog(null, "Il nome utente CONTIENE SPAZI!  \nSpazi non permessi", "ATTENZIONE", JOptionPane.WARNING_MESSAGE); 
+            JOptionPane.showMessageDialog(null, "Il nome utente CONTIENE SPAZI! \nSpazi non permessi", "ATTENZIONE", JOptionPane.WARNING_MESSAGE); 
             
             //svuota il campo username 
             TextFieldAlias.setText("");

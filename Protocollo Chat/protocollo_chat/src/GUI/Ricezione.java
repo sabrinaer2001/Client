@@ -80,44 +80,38 @@ public class Ricezione implements Runnable
                     //filtra l'alias sorgente dal pacchetto
                     sAlias = Arrays.copyOfRange(packet, 1, fA);
 
-                    //se l'alias e diverso dal proprio alias
-                    if(!new String(sAlias).equals(home.getAlias()))
-                    {
-                        System.out.println(new String(sAlias));
+                    System.out.println(new String(sAlias));
 
-                        //lunghezza in byte del messaggio sorgente
-                        int iM = fA + 1;
-                        int fM = 0; //è avanti di 1
-                        int guard = 0;
+                    //lunghezza in byte del messaggio sorgente
+                    int iM = fA + 1;
+                    int fM = 0; //è avanti di 1
+                    int guard = 0;
 
-                        for(byte b: packet)
-                        {   
-                            if(!(guard == 2))
+                    for(byte b: packet)
+                    {   
+                        if(!(guard == 2))
 
-                                if(b == 0)
-                                {
-                                    guard++;
-                                    fM++;
-                                }                           
-                                else
-                                {
-                                    fM++;
-                                }
+                            if(b == 0)
+                            {
+                                guard++;
+                                fM++;
+                            }                           
                             else
                             {
-                                break;
+                                fM++;
                             }
+                        else
+                        {
+                            break;
                         }
-                        //filtra il messaggio sorgente dal pacchetto
-                        sMsg = Arrays.copyOfRange(packet, iM, fM-1);
-
-                        System.out.println(new String(sMsg));
-
-                        home.setTextAreaMessaggi(new String(sAlias) + ": " + new String(sMsg));
                     }
-                    else
-                    {
-                    }
+                    //filtra il messaggio sorgente dal pacchetto
+                    sMsg = Arrays.copyOfRange(packet, iM, fM-1);
+
+                    System.out.println(new String(sMsg));
+
+                    home.setTextAreaMessaggi(new String(sAlias) + ": " + new String(sMsg));
+
                 }
                 catch( IOException ex )
                 {

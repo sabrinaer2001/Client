@@ -159,6 +159,11 @@ public class OPCodeInterpreter implements Runnable
                 case "18":
                     break;
                 case "20":
+                    //seleziona l'id
+                    byte[] id = new byte[1];
+                    id = Arrays.copyOfRange(packet, 1, 3);
+                    System.out.println(Arrays.toString(id));
+                    home.getConnessione().setId(id);
                     break;
                 case "51":
                     break;

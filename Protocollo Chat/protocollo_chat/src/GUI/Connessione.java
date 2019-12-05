@@ -7,7 +7,6 @@ import Pacchetti.UserToChat;
 import Pacchetti.UserToUser;
 import java.io.*;
 import java.net.*;
-import java.util.Arrays;
 
 /**
  *
@@ -99,13 +98,13 @@ public class Connessione
             //svuota il buffer
             output.flush();
 
-            //riceve l'ack
+            /*//riceve l'ack
             byte[] ack = new byte[4 + alias.getBytes().length];
             input.read(ack);
-
+            
             //seleziona l'id
             this.id = Arrays.copyOfRange(ack, 1, 3);
-            System.out.println(Arrays.toString(id));
+            System.out.println(Arrays.toString(id));*/
             
             //esito positivo
             return(1);

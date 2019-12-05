@@ -527,6 +527,11 @@ public class GuiNuova extends javax.swing.JFrame
     {
         return connessione.getSocket().isClosed();
     }
+
+    public Connessione getConnessione()
+    {
+        return connessione;
+    }
     
     
                

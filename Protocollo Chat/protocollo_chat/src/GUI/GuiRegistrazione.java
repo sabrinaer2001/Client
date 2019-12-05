@@ -71,6 +71,9 @@ public class GuiRegistrazione extends javax.swing.JFrame
         TextFieldTopic = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         buttonRegistrati = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        TextFieldServerIP = new javax.swing.JTextField();
+        ComboBoxIP = new javax.swing.JComboBox<>();
 
         setTitle("Registrazione");
         addWindowListener(new java.awt.event.WindowAdapter()
@@ -88,6 +91,7 @@ public class GuiRegistrazione extends javax.swing.JFrame
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
         TextFieldAlias.setBackground(new java.awt.Color(255, 255, 255));
+        TextFieldAlias.setForeground(new java.awt.Color(0, 0, 0));
         TextFieldAlias.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -122,6 +126,30 @@ public class GuiRegistrazione extends javax.swing.JFrame
             }
         });
 
+        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("ServerIP");
+
+        TextFieldServerIP.setBackground(new java.awt.Color(255, 255, 255));
+        TextFieldServerIP.setForeground(new java.awt.Color(0, 0, 0));
+        TextFieldServerIP.setText(" ");
+        TextFieldServerIP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                TextFieldServerIPActionPerformed(evt);
+            }
+        });
+
+        ComboBoxIP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "127.0.0.1", "192.168.1.7" }));
+        ComboBoxIP.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ComboBoxIPActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -129,38 +157,47 @@ public class GuiRegistrazione extends javax.swing.JFrame
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(114, 114, 114)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
+                        .addGap(95, 95, 95)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(buttonRegistrati, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(asd))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(asd)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(TextFieldAlias, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-                                    .addComponent(TextFieldTopic))))))
-                .addContainerGap(120, Short.MAX_VALUE))
+                                    .addComponent(TextFieldAlias)
+                                    .addComponent(TextFieldTopic, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                                    .addComponent(TextFieldServerIP, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ComboBoxIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(jLabel2)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(30, 30, 30)
                 .addComponent(jLabel2)
-                .addGap(38, 38, 38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TextFieldAlias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel3)
+                    .addComponent(TextFieldServerIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboBoxIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(TextFieldAlias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(asd)
                     .addComponent(TextFieldTopic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(buttonRegistrati)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addGap(55, 55, 55))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -188,8 +225,10 @@ public class GuiRegistrazione extends javax.swing.JFrame
         this.username = TextFieldAlias.getText();
         //prende il topic digitato
         this.topic = TextFieldTopic.getText();
+        //imposta l'ip del server
+        this.c.setServerIP(TextFieldServerIP.getText());
         
-        if(this.username.length() > 6 && this.username.length() < 32 && !this.username.contains(" "))
+        if(!" ".equals(this.TextFieldServerIP.getText()) && this.username.length() > 6 && this.username.length() < 32 && !this.username.contains(" "))
         {
             try
             {   
@@ -240,6 +279,12 @@ public class GuiRegistrazione extends javax.swing.JFrame
             }
             
         }
+        else if(" ".equals(this.TextFieldServerIP.getText()))
+        {
+            //apre un popup
+            JOptionPane.showMessageDialog(null, "Digitare o scegliere un IP!", "ATTENZIONE", JOptionPane.WARNING_MESSAGE); 
+            
+        }
         else if(this.username.length() > 32)
         {
             //apre un popup
@@ -276,8 +321,18 @@ public class GuiRegistrazione extends javax.swing.JFrame
 
     private void formWindowClosing(java.awt.event.WindowEvent evt)//GEN-FIRST:event_formWindowClosing
     {//GEN-HEADEREND:event_formWindowClosing
-     
+        home.setEnabled(true);
     }//GEN-LAST:event_formWindowClosing
+
+    private void TextFieldServerIPActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_TextFieldServerIPActionPerformed
+    {//GEN-HEADEREND:event_TextFieldServerIPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TextFieldServerIPActionPerformed
+
+    private void ComboBoxIPActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ComboBoxIPActionPerformed
+    {//GEN-HEADEREND:event_ComboBoxIPActionPerformed
+        this.TextFieldServerIP.setText(this.ComboBoxIP.getSelectedItem().toString());
+    }//GEN-LAST:event_ComboBoxIPActionPerformed
 
     public JTextField getTextFieldAlias()
     {
@@ -302,12 +357,15 @@ public class GuiRegistrazione extends javax.swing.JFrame
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboBoxIP;
     private javax.swing.JTextField TextFieldAlias;
+    private javax.swing.JTextField TextFieldServerIP;
     private javax.swing.JTextField TextFieldTopic;
     private javax.swing.JLabel asd;
     private javax.swing.JButton buttonRegistrati;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

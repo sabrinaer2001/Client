@@ -18,11 +18,12 @@ public class Connessione
     private DataInputStream input;
     private BufferedOutputStream output;
     private String messaggio = "";
-    private String serverIP = "192.168.1.7";
+    private String serverIP;
     private Socket socket;
     private int serverPort = 53101;
     private byte [] id;
-
+    
+    
     public DataInputStream getInput()
     {
         return input;

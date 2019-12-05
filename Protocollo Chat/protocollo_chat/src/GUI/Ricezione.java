@@ -9,7 +9,6 @@ import java.io.BufferedOutputStream;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -55,62 +54,10 @@ public class Ricezione implements Runnable
                     //si mette in attesa di un messaggio
                     input.read(this.packet);
 
-                    System.out.println(Arrays.toString(packet));
-                    
-                    //array di byte dell'alias sorgente
-                    byte[] sAlias;
-                    //array di byte del messaggio sorgente
-                    byte[] sMsg;
-
-                    //lunghezza in byte dell'alias sorgente
-                    int fA = 0;
-
-                    //calcola la lunghezza dell'alias sorgente
-                    for(byte b: packet)
-                    {   
-                        if(b == 0)
-                            break;
-                        else
-                        {
-                            fA++;
-
-                        }
-                    }
-
-                    //filtra l'alias sorgente dal pacchetto
-                    sAlias = Arrays.copyOfRange(packet, 1, fA);
-
-                    System.out.println(new String(sAlias));
-
-                    //lunghezza in byte del messaggio sorgente
-                    int iM = fA + 1;
-                    int fM = 0; //è avanti di 1
-                    int guard = 0;
-
-                    for(byte b: packet)
-                    {   
-                        if(!(guard == 2))
-
-                            if(b == 0)
-                            {
-                                guard++;
-                                fM++;
-                            }                           
-                            else
-                            {
-                                fM++;
-                            }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                    //filtra il messaggio sorgente dal pacchetto
-                    sMsg = Arrays.copyOfRange(packet, iM, fM-1);
-
-                    System.out.println(new String(sMsg));
-
-                    home.setTextAreaMessaggi(new String(sAlias) + ": " + new String(sMsg));
+                    OPCodeInterpreter r1 =new OPCodeInterpreter(this.packet, this.home);  
+                    Thread t1 =new Thread(r1);  
+                    t1.start();
+                    System.out.println("Ricevuto e passato");
 
                 }
                 catch( IOException ex )

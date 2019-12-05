@@ -17,7 +17,6 @@ public class Connessione
 {   
     private DataInputStream input;
     private BufferedOutputStream output;
-    private String messaggio = "";
     private String serverIP;
     private Socket socket;
     private int serverPort = 53101;
@@ -51,16 +50,6 @@ public class Connessione
     public void setSocket( Socket socket )
     {
         this.socket = socket;
-    }   
-    
-    
-    public String getMessaggio()
-    {
-        return messaggio;
-    }
-    public void setMessaggio( String messaggio )
-    {
-        this.messaggio = messaggio;
     }
 
     

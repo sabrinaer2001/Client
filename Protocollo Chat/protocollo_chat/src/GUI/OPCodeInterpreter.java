@@ -23,25 +23,6 @@ public class OPCodeInterpreter implements Runnable
         this.packet = packet;
         this.home = home;
     }
-    enum OpCode
-    {
-        // Messages
-        MsgUserToUser           (01),
-        MsgUserToGroup          (05),
-
-        // User status
-        Registration            (10),
-        Disconnection           (11),
-        AliasChange             (18),
-
-        // control messages
-        RegAck                  (20),
-        GroupUsersListRrq       (50),
-        GroupUsersList          (51),
-
-        // 
-        Error                   (255);
-    }
 
 // 01
 // 05
@@ -51,6 +32,7 @@ public class OPCodeInterpreter implements Runnable
 // 51
 // 255
 // 18
+    
     @Override
     public void run()
     {
@@ -62,14 +44,18 @@ public class OPCodeInterpreter implements Runnable
         int fM;
         int guard;
             Byte oc;
-            Byte utu = new Byte("01");
             byte[] aOc = new byte[1];
             aOc = Arrays.copyOfRange(packet, 0, 1);
             oc = aOc[0];
-            
-            switch( oc )
+            String sOc = Byte.toString(oc);
+            if(sOc.length() == 1)
             {
-                case utu:
+                sOc = "0" + sOc;
+            }
+            System.out.println(sOc);
+            switch( sOc )
+            {
+                case "01":
                     System.out.println("identificato messagio user to user");
                     //array di byte dell'alias sorgente
                     
@@ -123,7 +109,7 @@ public class OPCodeInterpreter implements Runnable
                     home.setTextAreaMessaggi("MESSAGGIO PRIVATO:\n" + new String(sAlias) + ": " + new String(sMsg));
                     
                     break;
-                case 05:
+                case "05":
                     System.out.println(Arrays.toString(packet));
                     //calcola la lunghezza dell'alias sorgente
                     for(byte b: packet)
@@ -164,7 +150,7 @@ public class OPCodeInterpreter implements Runnable
                     //filtra il messaggio sorgente dal pacchetto
                     sMsg = Arrays.copyOfRange(packet, iM, fM-1);
                     System.out.println(new String(sMsg));
-                    home.setTextAreaMessaggi(new String(sAlias) + ": " + new String(sMsg));
+                    home.setTextAreaMessaggi1(new String(sAlias) + ": " + new String(sMsg));
                     break;
                 case "10":
                     break;

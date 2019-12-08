@@ -34,7 +34,7 @@ public class GuiNuova extends javax.swing.JFrame
     private void initComponents()
     {
 
-        TabbedPanelUtoU = new javax.swing.JTabbedPane();
+        TabbedPanelChat = new javax.swing.JTabbedPane();
         PanelPrivate = new javax.swing.JPanel();
         TextFieldMessaggio = new javax.swing.JTextField();
         ButtonInvio = new javax.swing.JButton();
@@ -61,7 +61,7 @@ public class GuiNuova extends javax.swing.JFrame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Chat");
 
-        TabbedPanelUtoU.setName(""); // NOI18N
+        TabbedPanelChat.setName(""); // NOI18N
 
         PanelPrivate.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -145,29 +145,31 @@ public class GuiNuova extends javax.swing.JFrame
         PanelPrivateLayout.setHorizontalGroup(
             PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelPrivateLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
                 .addGroup(PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(PanelPrivateLayout.createSequentialGroup()
-                        .addGap(14, 14, 14)
+                        .addGroup(PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(TextFieldDst)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TextFieldMessaggio, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(ButtonInvio)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(PanelPrivateLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelPrivateLayout.createSequentialGroup()
+                        .addComponent(ButtonConnessione, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelPrivateLayout.createSequentialGroup()
-                                .addGroup(PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(TextFieldDst)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TextFieldMessaggio, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ButtonInvio))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(PanelPrivateLayout.createSequentialGroup()
-                                .addComponent(ButtonConnessione, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelStato, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(PanelPrivateLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(labelProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(68, 68, 68))
+                            .addComponent(labelStato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         PanelPrivateLayout.setVerticalGroup(
@@ -179,23 +181,23 @@ public class GuiNuova extends javax.swing.JFrame
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TextFieldDst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addGroup(PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextFieldMessaggio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonInvio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ButtonConnessione)
                     .addComponent(jLabel2)
                     .addComponent(labelStato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 13, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
         );
 
-        TabbedPanelUtoU.addTab("Private", PanelPrivate);
+        TabbedPanelChat.addTab("Private", PanelPrivate);
 
         PanelPublic.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -273,25 +275,27 @@ public class GuiNuova extends javax.swing.JFrame
             .addGroup(PanelPublicLayout.createSequentialGroup()
                 .addGroup(PanelPublicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelPublicLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(PanelPublicLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
                         .addGroup(PanelPublicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelPublicLayout.createSequentialGroup()
-                                .addGroup(PanelPublicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TextFieldMessaggioPu, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ButtonInvioPu))
-                            .addGroup(PanelPublicLayout.createSequentialGroup()
                                 .addComponent(ButtonConnessionePu, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(PanelPublicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(labelProfilePu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(labelStatoPu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(PanelPublicLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(labelStatoPu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(labelProfilePu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(PanelPublicLayout.createSequentialGroup()
+                                .addGroup(PanelPublicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addGroup(PanelPublicLayout.createSequentialGroup()
+                                        .addComponent(TextFieldMessaggioPu, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(ButtonInvioPu)))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         PanelPublicLayout.setVerticalGroup(
@@ -299,33 +303,37 @@ public class GuiNuova extends javax.swing.JFrame
             .addGroup(PanelPublicLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addGroup(PanelPublicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TextFieldMessaggioPu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ButtonInvioPu, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(PanelPublicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ButtonConnessionePu)
-                    .addComponent(jLabel5)
-                    .addComponent(labelStatoPu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelProfilePu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(65, 65, 65))
+                .addGroup(PanelPublicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelPublicLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ButtonConnessionePu))
+                    .addGroup(PanelPublicLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(PanelPublicLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(labelStatoPu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelProfilePu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
 
-        TabbedPanelUtoU.addTab("Public", PanelPublic);
+        TabbedPanelChat.addTab("Public", PanelPublic);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TabbedPanelUtoU, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(TabbedPanelChat, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TabbedPanelUtoU, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(TabbedPanelChat, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
@@ -348,7 +356,7 @@ public class GuiNuova extends javax.swing.JFrame
         {
             try
             {
-                this.connessione.disconnetti();
+                this.connessione.disconnetti(false);
                 
                 //cambia il bottone nella home da Disconnetti a Connetti
                 this.setButtonConnessioneText("Connetti");
@@ -457,29 +465,10 @@ public class GuiNuova extends javax.swing.JFrame
         {
             try
             {
-                this.connessione.disconnetti();
+                this.connessione.disconnetti(false);
                 
-                //cambia il bottone nella home da Disconnetti a Connetti
-                this.setButtonConnessioneText("Connetti");
-
-                //imposta lo stato
-                this.setLabelStatoColor(Color.red);
-                this.setLabelStatoText("non connesso");
-
-                //imposta il profilo
-                this.setLabelProfileText("");
-
-                //scrive il destinatario nella finestra della chat
-                this.TextAreaMessaggiPu.setText("");
-
-                //Disabilita la scrittura di messaggi 
-                this.setTextFieldMessaggio(false);
-
-                //Disabilita il bottone per l'invio dei messaggi
-                this.setButtonInvio(false);
-
-                //Disabilita la scrittura del destinatario
-                this.setTextFieldDst(false);
+                setDisconnesso();
+                
             }
             catch( IOException ex )
             {
@@ -487,7 +476,19 @@ public class GuiNuova extends javax.swing.JFrame
             }
         }
     }//GEN-LAST:event_ButtonConnessionePuActionPerformed
-    
+    public void setDisconnesso()
+    {
+        this.ButtonConnessione.setText("Connetti");
+        this.ButtonConnessionePu.setText("Connetti");
+        this.ButtonInvio.setEnabled(false);
+        this.ButtonInvioPu.setEnabled(false);
+        this.TextFieldMessaggio.setEnabled(false);
+        this.TextFieldMessaggioPu.setEnabled(false);
+        this.TextFieldDst.setEnabled(false);
+        this.setLabelStatoColor(Color.red);
+        this.setLabelStatoText("non connesso");
+        this.setLabelProfileText("");
+    }
     public void setLabelStatoColor(Color c)
     {
         this.labelStato.setForeground(c);
@@ -545,7 +546,7 @@ public class GuiNuova extends javax.swing.JFrame
         return connessione;
     }
     
-    
+
                
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonConnessione;
@@ -554,7 +555,7 @@ public class GuiNuova extends javax.swing.JFrame
     private javax.swing.JButton ButtonInvioPu;
     private javax.swing.JPanel PanelPrivate;
     private javax.swing.JPanel PanelPublic;
-    private javax.swing.JTabbedPane TabbedPanelUtoU;
+    private javax.swing.JTabbedPane TabbedPanelChat;
     private javax.swing.JTextArea TextAreaMessaggi;
     private javax.swing.JTextArea TextAreaMessaggiPu;
     private javax.swing.JTextField TextFieldDst;

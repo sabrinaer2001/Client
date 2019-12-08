@@ -5,8 +5,8 @@
  */
 package GUI;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
-import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.logging.Level;
@@ -19,52 +19,46 @@ import java.util.logging.Logger;
  */
 public class Ricezione implements Runnable
 {  
-    private DataInputStream input;
+    private BufferedInputStream input;
     private BufferedOutputStream output;
     private Socket socket;
     private GuiNuova home;
     byte[] packet = new byte[2048];
 
-    public Ricezione( DataInputStream input, BufferedOutputStream output, Socket socket, GuiNuova home )
+    public Ricezione( BufferedInputStream input, BufferedOutputStream output, Socket socket, GuiNuova home )
     {
         this.input = input;
         this.output = output;
         this.socket = socket;
         this.home = home;
     }
-    
+
     @Override
     public void run()
     {  
         System.out.println("thread is running...");
         
-        while( true )
+        while( home.getConnessione().isGuard() )
         {   
-            if(home.socketClosed() == true)
-            {
-                break;
-                
+
+            try
+            {   
+                System.out.println("Waiting to get a message...");
+
+                //si mette in attesa di un messaggio
+                input.read(this.packet);
+
+                OPCodeInterpreter r1 =new OPCodeInterpreter(this.packet, this.home);  
+                Thread t1 =new Thread(r1);  
+                t1.start();
+                System.out.println("Ricevuto e passato");
+
             }
-            else
+            catch( IOException ex )
             {
-                try
-                {   
-                    System.out.println("Waiting to get a message...");
-
-                    //si mette in attesa di un messaggio
-                    input.read(this.packet);
-
-                    OPCodeInterpreter r1 =new OPCodeInterpreter(this.packet, this.home);  
-                    Thread t1 =new Thread(r1);  
-                    t1.start();
-                    System.out.println("Ricevuto e passato");
-
-                }
-                catch( IOException ex )
-                {
-                    Logger.getLogger(Ricezione.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                Logger.getLogger(Ricezione.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
             
         }
             

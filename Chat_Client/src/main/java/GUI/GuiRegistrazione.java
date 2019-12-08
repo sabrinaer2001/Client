@@ -142,7 +142,7 @@ public class GuiRegistrazione extends javax.swing.JFrame
             }
         });
 
-        ComboBoxIP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "127.0.0.1", "192.168.1.7" }));
+        ComboBoxIP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "127.0.0.1", "192.168.1.7", "79.31.190.185" }));
         ComboBoxIP.setSelectedItem("");
         ComboBoxIP.addActionListener(new java.awt.event.ActionListener()
         {
@@ -166,7 +166,7 @@ public class GuiRegistrazione extends javax.swing.JFrame
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
+                .addContainerGap(54, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonRegistrati, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()

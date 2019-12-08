@@ -14,19 +14,30 @@ import java.net.*;
  */
 public class Connessione
 {   
-    private DataInputStream input;
+    private BufferedInputStream input;
     private BufferedOutputStream output;
     private String serverIP;
     private Socket socket;
     private int serverPort = 53101;
     private byte [] id;
+    private boolean guard = true;
+  
+    
+    public boolean isGuard()
+    {
+        return guard;
+    }
+    public void setGuard( boolean guard )
+    {
+        this.guard = guard;
+    }
     
     
-    public DataInputStream getInput()
+    public BufferedInputStream getInput()
     {
         return input;
     }
-    public void setInput( DataInputStream input )
+    public void setInput( BufferedInputStream input )
     {
         this.input = input;
     }
@@ -82,57 +93,69 @@ public class Connessione
     //invia il pacchetto di registrazione
     public int ConnettiInviaRegistrazione(String alias, String topic) throws IOException
     {   
-        try{
-            socket = new Socket(serverIP,serverPort);
-            output = new BufferedOutputStream(socket.getOutputStream());
-            input= new DataInputStream(socket.getInputStream());
+            try{
+                socket = new Socket(serverIP,serverPort);
+                output = new BufferedOutputStream(socket.getOutputStream());
+                input= new BufferedInputStream(socket.getInputStream());
+
+                //istanzia il pacchetto di registrazione
+                Registration r = new Registration(alias, topic);
+
+                //crea il pacchetto di registrazione
+                byte [] packet = r.getRegistrationPacket();
+
+                //invia il pacchetto di registrazione
+                output.write(packet);
+                //svuota il buffer
+                output.flush();
+
+                /*//riceve l'ack
+                byte[] ack = new byte[4 + alias.getBytes().length];
+                input.read(ack);
+
+                //seleziona l'id
+                this.id = Arrays.copyOfRange(ack, 1, 3);
+                System.out.println(Arrays.toString(id));*/
+
+                //esito positivo
+                return(1);
+            }
+            catch( IOException ioEception )
+            {
+                //esito negativo
+                return(0);
+
+            }
+        
+    }
+    
+    public void disconnetti(Boolean forced) throws IOException
+    {   
+        if(forced)
+        {
+            this.input.close();
+            this.output.close();
+            this.socket.close();
             
-            //istanzia il pacchetto di registrazione
-            Registration r = new Registration(alias, topic);
+        }
+        else
+        {  
+            //istanzia il pacchetto di disconnessione
+            Disconnection d = new Disconnection(this.id);
 
-            //crea il pacchetto di registrazione
-            byte [] packet = r.getRegistrationPacket();
+            //crea il pacchetto di disconnessione
+            byte [] packet = d.getDisconnectionPacket();
 
-            //invia il pacchetto di registrazione
+            //invia il pacchetto di disconnessione
             output.write(packet);
             //svuota il buffer
             output.flush();
 
-            /*//riceve l'ack
-            byte[] ack = new byte[4 + alias.getBytes().length];
-            input.read(ack);
-            
-            //seleziona l'id
-            this.id = Arrays.copyOfRange(ack, 1, 3);
-            System.out.println(Arrays.toString(id));*/
-            
-            //esito positivo
-            return(1);
+            this.input.close();
+            this.output.close();
+            this.socket.close();
         }
-        catch( IOException ioEception )
-        {
-            //esito negativo
-            return(0);
-            
-        }
-    }
-    
-    public void disconnetti() throws IOException
-    {   
-        //istanzia il pacchetto di disconnessione
-        Disconnection d = new Disconnection(this.id);
-
-        //crea il pacchetto di disconnessione
-        byte [] packet = d.getDisconnectionPacket();
-
-        //invia il pacchetto di disconnessione
-        output.write(packet);
-        //svuota il buffer
-        output.flush();
-        
-        this.input.close();
-        this.output.close();
-        this.socket.close();
+        this.setGuard(false);
     }
     
     public void UsertoUser(String dstAlias, String message) throws Exception

@@ -36,8 +36,8 @@ public class OPCodeInterpreter implements Runnable
         byte[] sMsg;
         int fA = 0;
         int iM;
-        int fM;
-        int guard;
+        int fM = 0;
+        int guard = 0;
         Byte oc;
         byte[] aOc = new byte[1];
         aOc = Arrays.copyOfRange(packet, 0, 1);
@@ -185,41 +185,40 @@ public class OPCodeInterpreter implements Runnable
                 
             case "51":
                 System.out.println("identificato messagio group users list");
-                /*Byte type = packet[1];
+                Byte type = packet[1];
                 Byte listLen = packet[2];
-                int guard1 = 0;
                 for(byte b: packet)
                 {
-                if(!(guard1 == 2))
-                
-                if(b == 0)
-                {
-                guard1++;
-                fM++;
-                }
-                else
-                {
-                fM++;
-                }
-                else
-                {
-                break;
-                }
+                    if(!(guard == 2))
+
+                        if(b == 0)
+                        {
+                            guard++;
+                            fM++;
+                        }
+                        else
+                        {
+                            fM++;
+                        }
+                    else
+                    {
+                        break;
+                    }
                 }
                 byte[] userList = Arrays.copyOfRange(packet, 3, fM);
                 System.out.println(new String(userList));
                 switch( type )
                 {
-                case 1:
-                System.out.println("type = 1");
-                break;
-                case 2:
-                System.out.println("type = 2");
-                break;
-                default:
-                System.out.println("type = 0");
-                break;
-                }*/
+                    case 1:
+                        System.out.println("type = 1");
+                        break;
+                    case 2:
+                        System.out.println("type = 2");
+                        break;
+                    default:
+                        System.out.println("type = 0");
+                        break;
+                }
                 break;
                 
             case "255":

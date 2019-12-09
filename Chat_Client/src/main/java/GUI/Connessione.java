@@ -155,6 +155,8 @@ public class Connessione
             this.output.close();
             this.socket.close();
         }
+        
+        //dice al thread master(ricezione) di arrestarsi
         this.setGuard(false);
     }
     

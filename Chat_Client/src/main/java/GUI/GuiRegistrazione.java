@@ -279,10 +279,7 @@ public class GuiRegistrazione extends javax.swing.JFrame
                     home.setTextFieldMessaggio(true);
                     
                     //Abilita il bottone per l'invio dei messaggi
-                    home.setButtonInvio(true);
-                    
-                    //Abilita la scrittura del destinatario
-                    home.setTextFieldDst(true);
+                    home.setButtonInvio(true);             
 
                     //chiude la gui corrente
                     this.setVisible(false);

@@ -44,9 +44,9 @@ public class GuiNuova extends javax.swing.JFrame
         ButtonConnessione = new javax.swing.JButton();
         labelProfile = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        TextFieldDst = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TextAreaMessaggi = new javax.swing.JTextArea();
+        ComboBoxUsers = new javax.swing.JComboBox<>();
         PanelPublic = new javax.swing.JPanel();
         TextFieldMessaggioPu = new javax.swing.JTextField();
         ButtonInvioPu = new javax.swing.JButton();
@@ -130,10 +130,6 @@ public class GuiNuova extends javax.swing.JFrame
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Destinazione:");
 
-        TextFieldDst.setBackground(new java.awt.Color(255, 255, 255));
-        TextFieldDst.setForeground(new java.awt.Color(0, 0, 0));
-        TextFieldDst.setEnabled(false);
-
         TextAreaMessaggi.setEditable(false);
         TextAreaMessaggi.setBackground(new java.awt.Color(255, 255, 255));
         TextAreaMessaggi.setColumns(20);
@@ -144,18 +140,6 @@ public class GuiNuova extends javax.swing.JFrame
         PanelPrivate.setLayout(PanelPrivateLayout);
         PanelPrivateLayout.setHorizontalGroup(
             PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelPrivateLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PanelPrivateLayout.createSequentialGroup()
-                        .addGroup(PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(TextFieldDst)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TextFieldMessaggio, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(ButtonInvio)))
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(PanelPrivateLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,6 +155,18 @@ public class GuiNuova extends javax.swing.JFrame
                                 .addGap(68, 68, 68))
                             .addComponent(labelStato, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
+            .addGroup(PanelPrivateLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(PanelPrivateLayout.createSequentialGroup()
+                        .addGroup(PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TextFieldMessaggio, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(ButtonInvio))
+                    .addComponent(ComboBoxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         PanelPrivateLayout.setVerticalGroup(
             PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,8 +176,8 @@ public class GuiNuova extends javax.swing.JFrame
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TextFieldDst, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ComboBoxUsers)
+                .addGap(10, 10, 10)
                 .addComponent(jLabel1)
                 .addGap(0, 0, 0)
                 .addGroup(PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -193,7 +189,7 @@ public class GuiNuova extends javax.swing.JFrame
                     .addComponent(jLabel2)
                     .addComponent(labelStato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
                 .addGap(35, 35, 35))
         );
 
@@ -377,8 +373,6 @@ public class GuiNuova extends javax.swing.JFrame
                 //Disabilita il bottone per l'invio dei messaggi
                 this.setButtonInvio(false);
 
-                //Disabilita la scrittura del destinatario
-                this.setTextFieldDst(false);
             }
             catch( IOException ex )
             {
@@ -396,7 +390,7 @@ public class GuiNuova extends javax.swing.JFrame
         {
             try
             {
-                this.connessione.UsertoUser(this.TextFieldDst.getText(), this.TextFieldMessaggio.getText());
+                this.connessione.UsertoUser(this.ComboBoxUsers.getItemAt(this.ComboBoxUsers.getSelectedIndex()), this.TextFieldMessaggio.getText());
                 this.TextAreaMessaggi.append(this.gr.getUsername() + ": " + this.TextFieldMessaggio.getText() + "\n");
                 this.TextFieldMessaggio.setText("");
             }
@@ -484,7 +478,7 @@ public class GuiNuova extends javax.swing.JFrame
         this.ButtonInvioPu.setEnabled(false);
         this.TextFieldMessaggio.setEnabled(false);
         this.TextFieldMessaggioPu.setEnabled(false);
-        this.TextFieldDst.setEnabled(false);
+        this.ComboBoxUsers.removeAllItems();
         this.setLabelStatoColor(Color.red);
         this.setLabelStatoText("non connesso");
         this.setLabelProfileText("");
@@ -527,10 +521,6 @@ public class GuiNuova extends javax.swing.JFrame
         this.TextFieldMessaggio.setEnabled(b);
         this.TextFieldMessaggioPu.setEnabled(b);
     }
-    public void setTextFieldDst(boolean b)
-    {
-        this.TextFieldDst.setEnabled(b);
-    }
     public String getAlias()
     {
         return this.gr.getUsername();
@@ -553,12 +543,12 @@ public class GuiNuova extends javax.swing.JFrame
     private javax.swing.JButton ButtonConnessionePu;
     private javax.swing.JButton ButtonInvio;
     private javax.swing.JButton ButtonInvioPu;
+    private javax.swing.JComboBox<String> ComboBoxUsers;
     private javax.swing.JPanel PanelPrivate;
     private javax.swing.JPanel PanelPublic;
     private javax.swing.JTabbedPane TabbedPanelChat;
     private javax.swing.JTextArea TextAreaMessaggi;
     private javax.swing.JTextArea TextAreaMessaggiPu;
-    private javax.swing.JTextField TextFieldDst;
     private javax.swing.JTextField TextFieldMessaggio;
     private javax.swing.JTextField TextFieldMessaggioPu;
     private javax.swing.JLabel jLabel1;

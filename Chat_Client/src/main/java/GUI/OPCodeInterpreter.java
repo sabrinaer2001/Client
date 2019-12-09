@@ -185,6 +185,41 @@ public class OPCodeInterpreter implements Runnable
                 
             case "51":
                 System.out.println("identificato messagio group users list");
+                /*Byte type = packet[1];
+                Byte listLen = packet[2];
+                int guard1 = 0;
+                for(byte b: packet)
+                {
+                if(!(guard1 == 2))
+                
+                if(b == 0)
+                {
+                guard1++;
+                fM++;
+                }
+                else
+                {
+                fM++;
+                }
+                else
+                {
+                break;
+                }
+                }
+                byte[] userList = Arrays.copyOfRange(packet, 3, fM);
+                System.out.println(new String(userList));
+                switch( type )
+                {
+                case 1:
+                System.out.println("type = 1");
+                break;
+                case 2:
+                System.out.println("type = 2");
+                break;
+                default:
+                System.out.println("type = 0");
+                break;
+                }*/
                 break;
                 
             case "255":

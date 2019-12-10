@@ -48,7 +48,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="54" max="32767" attributes="0"/>
+                  <EmptySpace pref="47" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="buttonRegistrati" min="-2" pref="188" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
@@ -177,10 +177,11 @@
         <Component class="javax.swing.JComboBox" name="ComboBoxIP">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
+              <StringArray count="4">
                 <StringItem index="0" value="127.0.0.1"/>
                 <StringItem index="1" value="192.168.1.7"/>
-                <StringItem index="2" value="79.31.190.185"/>
+                <StringItem index="2" value="188.216.231.30"/>
+                <StringItem index="3" value="79.31.190.185"/>
               </StringArray>
             </Property>
             <Property name="selectedItem" type="java.lang.Object" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">

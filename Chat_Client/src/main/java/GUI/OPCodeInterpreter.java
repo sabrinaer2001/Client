@@ -142,11 +142,16 @@ public class OPCodeInterpreter implements Runnable
                 }
                 //filtra il messaggio sorgente dal pacchetto
                 sMsg = Arrays.copyOfRange(packet, iM, fM-1);
-                System.out.println("messaggio: " + new String(sMsg));
-                home.setTextAreaMessaggi1(new String(sAlias) + ": " + new String(sMsg));
+                if(!"".equals(new String(sMsg)))
+                {
+                    System.out.println("messaggio: " + new String(sMsg));
+                    home.setTextAreaMessaggi1(new String(sAlias) + ": " + new String(sMsg));
+                }
                 break;
+
                 
             case "11":
+                home.getConnessione().setGuard(false);
                 System.out.println("identificato messagio server disconnection");
                 Byte reason = packet[1];
                 Byte.toString(reason);
@@ -166,8 +171,8 @@ public class OPCodeInterpreter implements Runnable
                 try
                 {
                     home.getConnessione().disconnetti(true);
-                    home.setDisconnesso();
-                    home.getConnessione().setGuard(false);
+                    home.setButtonConnessioneText("Disconnetti");
+                    home.setConnessoDisconnesso();
                 }
                 catch( IOException ex )
                 {

@@ -65,8 +65,6 @@ public class GuiNuova extends javax.swing.JFrame
 
         PanelPrivate.setBackground(new java.awt.Color(204, 204, 204));
 
-        TextFieldMessaggio.setBackground(new java.awt.Color(255, 255, 255));
-        TextFieldMessaggio.setForeground(new java.awt.Color(0, 0, 0));
         TextFieldMessaggio.setEnabled(false);
         TextFieldMessaggio.addActionListener(new java.awt.event.ActionListener()
         {
@@ -95,10 +93,8 @@ public class GuiNuova extends javax.swing.JFrame
             }
         });
 
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Scrivi il messaggio:");
 
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Stato:");
 
         labelStato.setBackground(new java.awt.Color(204, 204, 204));
@@ -127,14 +123,14 @@ public class GuiNuova extends javax.swing.JFrame
         labelProfile.setPreferredSize(new java.awt.Dimension(80, 16));
 
         jLabel3.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Destinazione:");
 
         TextAreaMessaggi.setEditable(false);
-        TextAreaMessaggi.setBackground(new java.awt.Color(255, 255, 255));
         TextAreaMessaggi.setColumns(20);
         TextAreaMessaggi.setRows(5);
         jScrollPane1.setViewportView(TextAreaMessaggi);
+
+        ComboBoxUsers.setEnabled(false);
 
         javax.swing.GroupLayout PanelPrivateLayout = new javax.swing.GroupLayout(PanelPrivate);
         PanelPrivate.setLayout(PanelPrivateLayout);
@@ -197,8 +193,6 @@ public class GuiNuova extends javax.swing.JFrame
 
         PanelPublic.setBackground(new java.awt.Color(204, 204, 204));
 
-        TextFieldMessaggioPu.setBackground(new java.awt.Color(255, 255, 255));
-        TextFieldMessaggioPu.setForeground(new java.awt.Color(0, 0, 0));
         TextFieldMessaggioPu.setEnabled(false);
         TextFieldMessaggioPu.addActionListener(new java.awt.event.ActionListener()
         {
@@ -227,10 +221,8 @@ public class GuiNuova extends javax.swing.JFrame
             }
         });
 
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Scrivi il messaggio:");
 
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Stato:");
 
         labelStatoPu.setBackground(new java.awt.Color(204, 204, 204));
@@ -259,7 +251,6 @@ public class GuiNuova extends javax.swing.JFrame
         labelProfilePu.setPreferredSize(new java.awt.Dimension(80, 16));
 
         TextAreaMessaggiPu.setEditable(false);
-        TextAreaMessaggiPu.setBackground(new java.awt.Color(255, 255, 255));
         TextAreaMessaggiPu.setColumns(20);
         TextAreaMessaggiPu.setRows(5);
         jScrollPane2.setViewportView(TextAreaMessaggiPu);
@@ -337,47 +328,13 @@ public class GuiNuova extends javax.swing.JFrame
 
     private void ButtonConnessioneActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ButtonConnessioneActionPerformed
     {//GEN-HEADEREND:event_ButtonConnessioneActionPerformed
-        if("Connetti".equals(ButtonConnessione.getText()))
+        try
         {
-            this.connessione = new Connessione();
-
-            //istanzia la gui per la registrazione
-            gr = new GuiRegistrazione(this, connessione);
-            //fa apparire la gui per la registrazione
-            gr.setVisible(true);
-            //disabilita la gui corrente
-            this.setEnabled(false);
+            setConnessoDisconnesso();
         }
-        else if("Disconnetti".equals(ButtonConnessione.getText()))
+        catch( IOException ex )
         {
-            try
-            {
-                this.connessione.disconnetti(false);
-                
-                //cambia il bottone nella home da Disconnetti a Connetti
-                this.setButtonConnessioneText("Connetti");
-
-                //imposta lo stato
-                this.setLabelStatoColor(Color.red);
-                this.setLabelStatoText("non connesso");
-
-                //imposta il profilo
-                this.setLabelProfileText("");
-
-                //scrive il destinatario nella finestra della chat
-                this.TextAreaMessaggiPu.setText("");
-
-                //Disabilita la scrittura di messaggi 
-                this.setTextFieldMessaggio(false);
-
-                //Disabilita il bottone per l'invio dei messaggi
-                this.setButtonInvio(false);
-
-            }
-            catch( IOException ex )
-            {
-                Logger.getLogger(GuiNuova.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            Logger.getLogger(GuiNuova.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ButtonConnessioneActionPerformed
 
@@ -444,8 +401,22 @@ public class GuiNuova extends javax.swing.JFrame
 
     private void ButtonConnessionePuActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ButtonConnessionePuActionPerformed
     {//GEN-HEADEREND:event_ButtonConnessionePuActionPerformed
-        if("Connetti".equals(ButtonConnessione.getText()))
+
+        try
         {
+            setConnessoDisconnesso();
+        }
+        catch( IOException ex )
+        {
+            Logger.getLogger(GuiNuova.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_ButtonConnessionePuActionPerformed
+    public void setConnessoDisconnesso() throws IOException
+    {   
+        if("Connetti".equals(ButtonConnessione.getText()))
+        {   
+            
             this.connessione = new Connessione();
 
             //istanzia la gui per la registrazione
@@ -457,70 +428,86 @@ public class GuiNuova extends javax.swing.JFrame
         }
         else if("Disconnetti".equals(ButtonConnessione.getText()))
         {
-            try
+            if(this.connessione.isGuard())
             {
                 this.connessione.disconnetti(false);
-                
-                setDisconnesso();
-                
+                this.ButtonConnessione.setText("Connetti");
+                this.ButtonConnessionePu.setText("Connetti");
+                this.setLabelStatoText("non connesso");
+                this.setLabelProfileText("");
+                this.TextAreaMessaggi.setText("");
+                this.TextAreaMessaggiPu.setText("");
+                this.ButtonInvio.setEnabled(false);
+                this.ButtonInvioPu.setEnabled(false);
+                this.TextFieldMessaggio.setEnabled(false);
+                this.TextFieldMessaggioPu.setEnabled(false);
+                this.ComboBoxUsers.setEnabled(false);
+                this.ComboBoxUsers.removeAllItems();
+                this.setLabelStatoColor(Color.red); 
             }
-            catch( IOException ex )
+            else
             {
-                Logger.getLogger(GuiNuova.class.getName()).log(Level.SEVERE, null, ex);
+                this.ButtonConnessione.setText("Connetti");
+                this.ButtonConnessionePu.setText("Connetti");
+                this.setLabelStatoText("non connesso");
+                this.setLabelProfileText("");
+                this.TextAreaMessaggi.setText("");
+                this.TextAreaMessaggiPu.setText("");
+                this.ButtonInvio.setEnabled(false);
+                this.ButtonInvioPu.setEnabled(false);
+                this.TextFieldMessaggio.setEnabled(false);
+                this.TextFieldMessaggioPu.setEnabled(false);
+                this.ComboBoxUsers.setEnabled(false);
+                this.ComboBoxUsers.removeAllItems();
+                this.setLabelStatoColor(Color.red);  
             }
         }
-    }//GEN-LAST:event_ButtonConnessionePuActionPerformed
-    public void setDisconnesso()
-    {
-        this.ButtonConnessione.setText("Connetti");
-        this.ButtonConnessionePu.setText("Connetti");
-        this.ButtonInvio.setEnabled(false);
-        this.ButtonInvioPu.setEnabled(false);
-        this.TextFieldMessaggio.setEnabled(false);
-        this.TextFieldMessaggioPu.setEnabled(false);
-        this.ComboBoxUsers.removeAllItems();
-        this.setLabelStatoColor(Color.red);
-        this.setLabelStatoText("non connesso");
-        this.setLabelProfileText("");
     }
+    
     public void setLabelStatoColor(Color c)
     {
         this.labelStato.setForeground(c);
         this.labelStatoPu.setForeground(c);
     }
+    
     public void setLabelStatoText(String s)
     {
         this.labelStato.setText(s);
         this.labelStatoPu.setText(s);
     }
+    
     public void setLabelProfileText(String s)
     {
         this.labelProfile.setText(s);
         this.labelProfilePu.setText(s);
     }
+    
     public void setButtonConnessioneText(String s)
     {
         this.ButtonConnessione.setText(s);
         this.ButtonConnessionePu.setText(s);
     }
+    
     public void setButtonInvio(Boolean b)
     {
-        this.ButtonInvio.setEnabled(b);
         this.ButtonInvioPu.setEnabled(b);
     }
+    
     public void setTextAreaMessaggi(String s)
     {
         this.TextAreaMessaggi.append(s+"\n");
     }
+    
     public void setTextAreaMessaggi1(String s)
     {
         this.TextAreaMessaggiPu.append(s+"\n");
     }
+    
     public void setTextFieldMessaggio(boolean b)
     {
-        this.TextFieldMessaggio.setEnabled(b);
         this.TextFieldMessaggioPu.setEnabled(b);
     }
+    
     public String getAlias()
     {
         return this.gr.getUsername();
@@ -539,18 +526,38 @@ public class GuiNuova extends javax.swing.JFrame
     public void addUser(String u)
     {
         this.ComboBoxUsers.addItem(u);
+        setPrivate(true);
     }   
+    
     public void removeUser(String u)
     {
         for(int i = 0; this.ComboBoxUsers.getItemCount() > i; i++)
-        {   
+        {             
             if(this.ComboBoxUsers.getItemAt(i).equals(u))
             {
-                this.ComboBoxUsers.remove(i);
+                this.ComboBoxUsers.removeItemAt(i);
                 break;
             }
         }
+        if(this.ComboBoxUsers.getItemCount() == 0)
+            setPrivate(false);
     }
+    
+    public void setPrivate(boolean b)
+    {   
+        if(b)
+        {
+            this.ComboBoxUsers.setEnabled(true);
+            this.TextFieldMessaggio.setEnabled(true);
+            this.ButtonInvio.setEnabled(true); 
+        }
+        else
+        {
+            this.ComboBoxUsers.setEnabled(false);
+            this.TextFieldMessaggio.setEnabled(false);
+            this.ButtonInvio.setEnabled(false);
+        }
+    }    
                
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonConnessione;

@@ -127,12 +127,12 @@ public class Connessione
     
     public void disconnetti(Boolean forced) throws IOException
     {   
-        if(forced)
+        if(forced)//il server si arresta quindi non è 
+                  //necessario inviare il pacchetto disconnection
         {
             this.input.close();
             this.output.close();
-            this.socket.close();
-            
+            this.socket.close();           
         }
         else
         {  

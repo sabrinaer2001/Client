@@ -91,8 +91,6 @@ public class GuiRegistrazione extends javax.swing.JFrame
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        TextFieldAlias.setBackground(new java.awt.Color(255, 255, 255));
-        TextFieldAlias.setForeground(new java.awt.Color(0, 0, 0));
         TextFieldAlias.setText("JellyLama");
         TextFieldAlias.addActionListener(new java.awt.event.ActionListener()
         {
@@ -103,11 +101,9 @@ public class GuiRegistrazione extends javax.swing.JFrame
         });
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("UserName");
 
         asd.setBackground(new java.awt.Color(204, 204, 204));
-        asd.setForeground(new java.awt.Color(0, 0, 0));
         asd.setText("Topic");
 
         TextFieldTopic.setEditable(false);
@@ -116,7 +112,6 @@ public class GuiRegistrazione extends javax.swing.JFrame
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 204));
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Registrazione");
 
         buttonRegistrati.setText("Registrati");
@@ -129,11 +124,8 @@ public class GuiRegistrazione extends javax.swing.JFrame
         });
 
         jLabel3.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("ServerIP");
 
-        TextFieldServerIP.setBackground(new java.awt.Color(255, 255, 255));
-        TextFieldServerIP.setForeground(new java.awt.Color(0, 0, 0));
         TextFieldServerIP.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -142,7 +134,7 @@ public class GuiRegistrazione extends javax.swing.JFrame
             }
         });
 
-        ComboBoxIP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "127.0.0.1", "192.168.1.7", "79.31.190.185" }));
+        ComboBoxIP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "127.0.0.1", "192.168.1.7", "188.216.231.30", "79.31.190.185" }));
         ComboBoxIP.setSelectedItem("");
         ComboBoxIP.addActionListener(new java.awt.event.ActionListener()
         {
@@ -166,7 +158,7 @@ public class GuiRegistrazione extends javax.swing.JFrame
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
+                .addContainerGap(47, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(buttonRegistrati, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -243,6 +235,7 @@ public class GuiRegistrazione extends javax.swing.JFrame
         
         if(!" ".equals(this.TextFieldServerIP.getText()) && this.username.length() > 6 && this.username.length() < 32 && !this.username.contains(" "))
         {
+            this.c.setGuard(true);
             try
             {   
                    //invia la richiesta di registrazione

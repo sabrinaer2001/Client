@@ -188,16 +188,59 @@ public class OPCodeInterpreter implements Runnable
             case "51":
                 System.out.println("identificato messagio group users list");
                 Byte type = packet[1];
-                Byte listLen = packet[2];
+                byte[] userList; 
+                Gson gson; 
+                ArrayList list;
+                //Byte listLen = packet[2];
                 
                 switch( type )
                 {
                     case 1:
                         System.out.println("type = 1");
+                        //calcola la fine della lista
+                        for(byte b: packet)
+                        {
+                            if(b == 0)
+                                break;
+                            else
+                                fM++;
+
+                        }
+                        userList= Arrays.copyOfRange(packet, 3, fM);
+                        System.out.println(Arrays.toString(userList));
+                        System.out.println(new String(userList));
+                        gson= new Gson();
+                        list = gson.fromJson(new String(userList), ArrayList.class);
+                        System.out.println("ArrayList: "+list);
+                        
+                        //aggiunge lo user al combobox
+                        home.addUser(list.get(0).toString());
+                        
                         break;
+                        
                     case 2:
                         System.out.println("type = 2");
+                        
+                        //calcola la fine della lista
+                        for(byte b: packet)
+                        {
+                            if(b == 0)
+                                break;
+                            else
+                                fM++;
+
+                        }
+                        userList= Arrays.copyOfRange(packet, 3, fM);
+                        System.out.println(Arrays.toString(userList));
+                        System.out.println(new String(userList));
+                        gson= new Gson();
+                        list = gson.fromJson(new String(userList), ArrayList.class);
+                        System.out.println("ArrayList: "+list);
+                        
+                        //rimuove lo user dal combobox
+                        home.removeUser(list.get(0).toString());
                         break;
+                        
                     default:
                         System.out.println("type = 0");
                         //calcola la fine della lista
@@ -219,18 +262,19 @@ public class OPCodeInterpreter implements Runnable
                                 break;
                             }
                         }
-                        byte[] userList = Arrays.copyOfRange(packet, 3, fM-1);
+                        userList= Arrays.copyOfRange(packet, 3, fM-1);
                         System.out.println(Arrays.toString(userList));
                         System.out.println(new String(userList));
-                        Gson gson = new Gson();
-                        ArrayList list = gson.fromJson(new String(userList), ArrayList.class);
+                        gson= new Gson();
+                        list = gson.fromJson(new String(userList), ArrayList.class);
                         System.out.println("ArrayList: "+list);
-                        //stampa gli username
+                        
                         for(int i = 0; list.size() > i; i++)
                         {
                             System.out.println(home.getAlias());
+                            //aggiunge lo user al combobox
                             if(!list.get(i).toString().equals(home.getAlias()))
-                                home.addUsername(list.get(i).toString());
+                                home.addUser(list.get(i).toString());
                         }
                         break;
                 }

@@ -1,10 +1,6 @@
 package GUI;
 
-import Pacchetti.ChangeOfAlias;
-import Pacchetti.Disconnection;
-import Pacchetti.Registration;
-import Pacchetti.UserToChat;
-import Pacchetti.UserToUser;
+import Pacchetti.*;
 import java.io.*;
 import java.net.*;
 

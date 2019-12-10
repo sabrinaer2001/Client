@@ -536,7 +536,10 @@ public class GuiNuova extends javax.swing.JFrame
         return connessione;
     }
     
-
+    public void addUsername(String u)
+    {
+        this.ComboBoxUsers.addItem(u);
+    }
                
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonConnessione;

@@ -14,7 +14,7 @@ import java.net.*;
  */
 public class Connessione
 {   
-    private BufferedInputStream input;
+    private DataInputStream input;
     private BufferedOutputStream output;
     private String serverIP;
     private Socket socket;
@@ -33,11 +33,11 @@ public class Connessione
     }
     
     
-    public BufferedInputStream getInput()
+    public DataInputStream getInput()
     {
         return input;
     }
-    public void setInput( BufferedInputStream input )
+    public void setInput( DataInputStream input )
     {
         this.input = input;
     }
@@ -96,7 +96,7 @@ public class Connessione
             try{
                 socket = new Socket(serverIP,serverPort);
                 output = new BufferedOutputStream(socket.getOutputStream());
-                input= new BufferedInputStream(socket.getInputStream());
+                input= new DataInputStream(socket.getInputStream());
 
                 //istanzia il pacchetto di registrazione
                 Registration r = new Registration(alias, topic);

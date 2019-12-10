@@ -7,6 +7,7 @@ package GUI;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.logging.Level;
@@ -19,13 +20,13 @@ import java.util.logging.Logger;
  */
 public class Ricezione implements Runnable
 {  
-    private BufferedInputStream input;
+    private DataInputStream input;
     private BufferedOutputStream output;
     private Socket socket;
     private GuiNuova home;
     byte[] packet = new byte[2048];
 
-    public Ricezione( BufferedInputStream input, BufferedOutputStream output, Socket socket, GuiNuova home )
+    public Ricezione( DataInputStream input, BufferedOutputStream output, Socket socket, GuiNuova home )
     {
         this.input = input;
         this.output = output;

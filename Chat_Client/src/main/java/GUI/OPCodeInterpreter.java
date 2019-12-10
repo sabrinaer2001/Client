@@ -5,7 +5,9 @@
  */
 package GUI;
 
+import com.google.gson.Gson;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -187,26 +189,7 @@ public class OPCodeInterpreter implements Runnable
                 System.out.println("identificato messagio group users list");
                 Byte type = packet[1];
                 Byte listLen = packet[2];
-                for(byte b: packet)
-                {
-                    if(!(guard == 2))
-
-                        if(b == 0)
-                        {
-                            guard++;
-                            fM++;
-                        }
-                        else
-                        {
-                            fM++;
-                        }
-                    else
-                    {
-                        break;
-                    }
-                }
-                byte[] userList = Arrays.copyOfRange(packet, 3, fM);
-                System.out.println(new String(userList));
+                
                 switch( type )
                 {
                     case 1:
@@ -217,6 +200,38 @@ public class OPCodeInterpreter implements Runnable
                         break;
                     default:
                         System.out.println("type = 0");
+                        //calcola la fine della lista
+                        for(byte b: packet)
+                        {
+                            if(!(guard == 2))
+
+                                if(b == 0)
+                                {
+                                    guard++;
+                                    fM++;
+                                }
+                                else
+                                {
+                                    fM++;
+                                }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        byte[] userList = Arrays.copyOfRange(packet, 3, fM-1);
+                        System.out.println(Arrays.toString(userList));
+                        System.out.println(new String(userList));
+                        Gson gson = new Gson();
+                        ArrayList list = gson.fromJson(new String(userList), ArrayList.class);
+                        System.out.println("ArrayList: "+list);
+                        //stampa gli username
+                        for(int i = 0; list.size() > i; i++)
+                        {
+                            System.out.println(home.getAlias());
+                            if(!list.get(i).toString().equals(home.getAlias()))
+                                home.addUsername(list.get(i).toString());
+                        }
                         break;
                 }
                 break;

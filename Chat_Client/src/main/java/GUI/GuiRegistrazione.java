@@ -1,5 +1,7 @@
 package GUI;
 
+import Invio.Connessione;
+import Thread.Ricezione;
 import java.awt.Color;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -276,7 +278,7 @@ public class GuiRegistrazione extends javax.swing.JFrame
 
                     //chiude la gui corrente
                     this.setVisible(false);
-
+                    Repo.userS = this.username;
                 }
             }
             catch( IOException ex )

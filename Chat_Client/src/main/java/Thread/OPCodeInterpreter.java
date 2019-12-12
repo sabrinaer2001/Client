@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package Thread;
 
+import GUI.GuiNuova;
+import GUI.Repo;
 import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -97,11 +99,21 @@ public class OPCodeInterpreter implements Runnable
                 }
                 //filtra il messaggio sorgente dal pacchetto
                 sMsg = Arrays.copyOfRange(packet, iM, fM-1);
-                if(!"".equals(new String(sMsg)))
-                {
-                    System.out.println("messaggio: " + new String(sMsg));
-                    home.setTextAreaMessaggi("MESSAGGIO DA " + new String(sAlias) + " :\n- " + new String(sMsg));
+
+                System.out.println("messaggio: " + new String(sMsg));
+                //home.setTextAreaMessaggi("MESSAGGIO PRIVATO:\n" + new String(sAlias) + ": " + new String(sMsg));
+
+                if(Repo.listaM.containsKey(new String(sAlias)))
+                {   
+                    System.out.println("Inserito e esisteva gia: " + new String(sMsg));
+                    Repo.listaM.replace(new String(sAlias),Repo.listaM.get(new String(sAlias)) + new String(sAlias) + ": " + new String(sMsg) + "\n");
+                }    
+                else
+                {   
+                    System.out.println("Inserito e non esisteva: " + new String(sMsg));
+                    Repo.listaM.put(new String(sAlias), new String(sAlias) + ": " + new String(sMsg) + "\n");
                 }
+
                 break;
                 
             case "05":

@@ -276,7 +276,7 @@ public class GuiRegistrazione extends javax.swing.JFrame
 
                     //chiude la gui corrente
                     this.setVisible(false);
-
+                    Repo.userS = this.username;
                 }
             }
             catch( IOException ex )

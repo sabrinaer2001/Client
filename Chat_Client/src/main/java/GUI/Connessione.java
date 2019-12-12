@@ -165,6 +165,14 @@ public class Connessione
         //invia il pacchetto
         output.write(packet);
         output.flush();
+        if(Repo.listaM.containsKey(Repo.userD))
+        {                      
+            Repo.listaM.replace(Repo.userD, Repo.listaM.get(Repo.userD) + Repo.userS + ": " + message + "\n");
+        }    
+        else
+        {
+            Repo.listaM.put(Repo.userD, Repo.userS + ": " + message + "\n");
+        }
     }
     
     public void UsertoChat(String m) throws Exception{

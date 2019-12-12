@@ -131,6 +131,13 @@ public class GuiNuova extends javax.swing.JFrame
         jScrollPane1.setViewportView(TextAreaMessaggi);
 
         ComboBoxUsers.setEnabled(false);
+        ComboBoxUsers.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                ComboBoxUsersActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelPrivateLayout = new javax.swing.GroupLayout(PanelPrivate);
         PanelPrivate.setLayout(PanelPrivateLayout);
@@ -328,6 +335,10 @@ public class GuiNuova extends javax.swing.JFrame
 
     private void ButtonConnessioneActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ButtonConnessioneActionPerformed
     {//GEN-HEADEREND:event_ButtonConnessioneActionPerformed
+        Repo.userD = "";
+        Repo.userS = "";
+        Repo.listaM.clear();
+        System.out.println("Lista svuotata");
         try
         {
             setConnessoDisconnesso();
@@ -401,7 +412,10 @@ public class GuiNuova extends javax.swing.JFrame
 
     private void ButtonConnessionePuActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ButtonConnessionePuActionPerformed
     {//GEN-HEADEREND:event_ButtonConnessionePuActionPerformed
-
+        Repo.userD = "";
+        Repo.userS = "";
+        Repo.listaM.clear();
+        System.out.println("Lista svuotata");
         try
         {
             setConnessoDisconnesso();
@@ -412,8 +426,25 @@ public class GuiNuova extends javax.swing.JFrame
         }
 
     }//GEN-LAST:event_ButtonConnessionePuActionPerformed
+
+    private void ComboBoxUsersActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ComboBoxUsersActionPerformed
+    {//GEN-HEADEREND:event_ComboBoxUsersActionPerformed
+        if(Repo.listaM.containsKey(this.ComboBoxUsers.getSelectedItem()))
+        {
+            Repo.userD = this.ComboBoxUsers.getSelectedItem().toString();
+            this.TextAreaMessaggi.setText(Repo.listaM.get(this.ComboBoxUsers.getSelectedItem()));
+        }
+        else
+        {
+            Repo.userD = this.ComboBoxUsers.getSelectedItem().toString();
+            this.TextAreaMessaggi.setText("");
+        }
+        
+    }//GEN-LAST:event_ComboBoxUsersActionPerformed
     public void setConnessoDisconnesso() throws IOException
     {   
+        this.ComboBoxUsers.setEnabled(false);
+        this.ComboBoxUsers.removeAllItems();
         if("Connetti".equals(ButtonConnessione.getText()))
         {   
             
@@ -461,6 +492,7 @@ public class GuiNuova extends javax.swing.JFrame
                 this.ComboBoxUsers.removeAllItems();
                 this.setLabelStatoColor(Color.red);  
             }
+            
         }
     }
     

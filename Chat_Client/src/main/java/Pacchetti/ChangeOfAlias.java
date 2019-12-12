@@ -5,7 +5,7 @@ package Pacchetti;
 
 /**
  * 18
- * @author richi
+ * @author 18868-18027
  * change of alias
  */
 public class ChangeOfAlias {

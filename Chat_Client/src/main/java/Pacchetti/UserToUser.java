@@ -6,7 +6,7 @@ package Pacchetti;
 
 /**
  * 01
- * @author richi
+ * @author 18868-18027
  * Pacchetto USER to USER 
  */
 public class UserToUser{

@@ -132,6 +132,13 @@ public class GuiNuova extends javax.swing.JFrame
         jScrollPane1.setViewportView(TextAreaMessaggi);
 
         ComboBoxUsers.setEnabled(false);
+        ComboBoxUsers.addMouseListener(new java.awt.event.MouseAdapter()
+        {
+            public void mouseClicked(java.awt.event.MouseEvent evt)
+            {
+                ComboBoxUsersMouseClicked(evt);
+            }
+        });
         ComboBoxUsers.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -169,8 +176,10 @@ public class GuiNuova extends javax.swing.JFrame
                             .addComponent(TextFieldMessaggio, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(ButtonInvio))
-                    .addComponent(ComboBoxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(PanelPrivateLayout.createSequentialGroup()
+                        .addComponent(ComboBoxUsers, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(261, 261, 261)))
+                .addGap(49, 49, 49))
         );
         PanelPrivateLayout.setVerticalGroup(
             PanelPrivateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,6 +345,7 @@ public class GuiNuova extends javax.swing.JFrame
 
     private void ButtonConnessioneActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ButtonConnessioneActionPerformed
     {//GEN-HEADEREND:event_ButtonConnessioneActionPerformed
+        //resetta lo user di destinazione
         Repo.userD = "";
         Repo.userS = "";
         Repo.listaM.clear();
@@ -425,11 +435,15 @@ public class GuiNuova extends javax.swing.JFrame
         {
             Logger.getLogger(GuiNuova.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_ButtonConnessionePuActionPerformed
 
     private void ComboBoxUsersActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_ComboBoxUsersActionPerformed
     {//GEN-HEADEREND:event_ComboBoxUsersActionPerformed
+     
+    }//GEN-LAST:event_ComboBoxUsersActionPerformed
+
+    private void ComboBoxUsersMouseClicked(java.awt.event.MouseEvent evt)//GEN-FIRST:event_ComboBoxUsersMouseClicked
+    {//GEN-HEADEREND:event_ComboBoxUsersMouseClicked
         if(Repo.listaM.containsKey(this.ComboBoxUsers.getSelectedItem()))
         {
             Repo.userD = this.ComboBoxUsers.getSelectedItem().toString();
@@ -440,8 +454,7 @@ public class GuiNuova extends javax.swing.JFrame
             Repo.userD = this.ComboBoxUsers.getSelectedItem().toString();
             this.TextAreaMessaggi.setText("");
         }
-        
-    }//GEN-LAST:event_ComboBoxUsersActionPerformed
+    }//GEN-LAST:event_ComboBoxUsersMouseClicked
     public void setConnessoDisconnesso() throws IOException
     {   
         this.ComboBoxUsers.setEnabled(false);

@@ -41,7 +41,7 @@ public class OPCodeInterpreter implements Runnable
         int fM = 0;
         int guard = 0;
         Byte oc;
-        byte[] aOc = new byte[1];
+        byte[] aOc;
         aOc = Arrays.copyOfRange(packet, 0, 1);
         oc = aOc[0];
         String sOc = Byte.toString(oc);
@@ -97,9 +97,11 @@ public class OPCodeInterpreter implements Runnable
                 }
                 //filtra il messaggio sorgente dal pacchetto
                 sMsg = Arrays.copyOfRange(packet, iM, fM-1);
-                System.out.println("messaggio: " + new String(sMsg));
-                home.setTextAreaMessaggi("MESSAGGIO PRIVATO:\n" + new String(sAlias) + ": " + new String(sMsg));
-
+                if(!"".equals(new String(sMsg)))
+                {
+                    System.out.println("messaggio: " + new String(sMsg));
+                    home.setTextAreaMessaggi("MESSAGGIO DA " + new String(sAlias) + " :\n- " + new String(sMsg));
+                }
                 break;
                 
             case "05":
@@ -184,7 +186,7 @@ public class OPCodeInterpreter implements Runnable
             case "20":
                 System.out.println("identificato messagio registration ack");
                 //seleziona l'id
-                byte[] id = new byte[1];
+                byte[] id;
                 id = Arrays.copyOfRange(packet, 1, 3);
                 System.out.println("id: " + Arrays.toString(id));
                 home.getConnessione().setId(id);

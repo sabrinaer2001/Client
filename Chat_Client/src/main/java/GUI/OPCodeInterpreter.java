@@ -286,7 +286,37 @@ public class OPCodeInterpreter implements Runnable
                 break;
                 
             case "255":
-                System.out.println("identificato messagio errors");
+                System.out.println("identificato messagio error");
+                Byte errorCode = packet[1];
+                Byte.toString(errorCode);
+                switch( Byte.toString(errorCode) )
+                {
+                    case "000":
+                        JOptionPane.showMessageDialog(null, "Il server dice: malformed package", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+                        break;
+                    case "100":
+                        JOptionPane.showMessageDialog(null, "Il server dice: alias already in use", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+                        break;
+                    case "101":
+                        JOptionPane.showMessageDialog(null, "Il server dice: unvalid alias", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+                        break;
+                    case "102":
+                        JOptionPane.showMessageDialog(null, "Il server dice: invalid room name", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+                        break;
+                    case "200":
+                        JOptionPane.showMessageDialog(null, "Il server dice: chat denied", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+                        break;
+                    case "202":
+                        JOptionPane.showMessageDialog(null, "Il server dice: maximum clients reached", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+                        break;
+                    case "254":
+                        JOptionPane.showMessageDialog(null, "Il server dice: server exploded", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+                        break;
+                    case "255":
+                        JOptionPane.showMessageDialog(null, "Il server dice: unspecified exception", "ATTENZIONE", JOptionPane.WARNING_MESSAGE);
+                        break;
+                        
+                }
                 break;
 
         }

@@ -6,7 +6,7 @@ package Pacchetti;
 
 /**
  * 05
- * @author 18868-18027
+ * @author 18868-18027-17694
  * Pacchetto USER to CHAT
  */
 public class UserToChat {

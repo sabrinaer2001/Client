@@ -7,7 +7,7 @@ import java.net.*;
 
 /**
  *
- * @author 18868-18027
+ * @author 18868-18027-17694
  */
 public class Connessione
 {   

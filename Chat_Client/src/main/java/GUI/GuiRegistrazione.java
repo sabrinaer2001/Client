@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author 18868-18027
+ * @author 18868-18027-17694
  */
 public class GuiRegistrazione extends javax.swing.JFrame
 {

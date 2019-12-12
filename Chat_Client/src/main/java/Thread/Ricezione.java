@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author 18868-18027
+ * @author 18868-18027-17694
  */
 public class Ricezione implements Runnable
 {  

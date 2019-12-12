@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author JellyLama
+ * @author 18868-18027
  */
 public class OPCodeInterpreter implements Runnable
 {

@@ -6,7 +6,7 @@ import java.net.*;
 
 /**
  *
- * @author JellyLama
+ * @author 18868-18027
  */
 public class Connessione
 {   

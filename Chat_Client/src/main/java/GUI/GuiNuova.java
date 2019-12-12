@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author JellyLama
+ * @author 18868-18027
  */
 public class GuiNuova extends javax.swing.JFrame
 {

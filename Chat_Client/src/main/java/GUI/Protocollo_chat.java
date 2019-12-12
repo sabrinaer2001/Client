@@ -2,7 +2,7 @@ package GUI;
 
 /**
  *
- * @author 18868
+ * @author 18868-18027
  */
 public class Protocollo_chat {
 

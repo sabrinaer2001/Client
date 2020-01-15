@@ -1,0 +1,12 @@
+site_name: 2020_5BI_Team6_Software_Doc
+nav:
+    - 'Project Charter': 'Project Charter/index.md'
+    - 'Software Requirements Specification': 'Software Requirements Specification/index.md'
+    - 'Software Project Management plan': 'Software Project Management Plan/index.md'
+    - 'Business Model Canvas': 'Business Model Canvas/index.md'
+    - 'Project Model Canvas': 'Project Model Canvas/index.md'
+    
+theme:
+    name: readthedocs
+
+use_directory_urls: true

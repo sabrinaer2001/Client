@@ -1,4 +1,4 @@
-| **Project Title:** Chat protocol  |
+| **Project Title:** Chat protocol |
 | --- |
 | **Start Date:** 25/10/2019 | **End Date:** 6 months after the start date |
 | **Project Manager:** Er Raqioui Sabrina |

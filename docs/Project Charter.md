@@ -2,7 +2,7 @@
 | --- |
 | **Start Date:** 25/10/2019 | **End Date:** 6 months after the start date |
 | **Project Manager:** Er Raqioui Sabrina |
-| **Project Sponsor:** Sette Antonio |
+| **Project Sponsor:** arbuzzi Antonio |
 | **Customer:** Students of G.Marconi |
 | **Users:** Students of 5EI |
 | Expectations: Team: have a client-side application that can interact with a chat message exchange server. |

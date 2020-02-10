@@ -10,8 +10,7 @@
 | **Goals and Objectives** :Objectives: the general objective is to provide an alternative way to exchange information.It is expected:     • an interface developed with JFrame that allows access to the user;     • simple and intuitive operation.  |
 | **Schedule Information (Major milestones and deliverables)**:25/10/2019 -  Chat project introduction
 08/10/2019 -  Subdivisions of tasks within the group and client initialization
-15/11/2019 -  Finishing developing graphic part
- -   |
+15/11/2019 -  Finishing developing graphic part |
 | Project priorities and degrees of freedom: **Dates are not flexible without the teacher&#39;s prior authorization. The budget is not present. Roles can be changed based on the workloads of individual team members. Even if the roles are not expected to change during the project based on needs.**   |
 | **Approach:** iterative and incremental planning. Feedback will be used from one iteration to the next to improve its performance. The first iteration will focus on the basic functionality of the app. Subsequent iterations will be based on its improvement |
 | **Constraints** : Constraints: the teacher&#39;s approval is required for the application. We are proceeding with the project while pursuing this consensus with the understanding that we may not get it. If consent is denied, the team will create an incomplete or non-functioning application. |

@@ -24,7 +24,7 @@ Senapathige Rodrigo Sahas
 
 Toth Valentin
 
-# 1 Contents
+# Contents
 
  Introduction        (page 3)
 

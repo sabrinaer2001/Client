@@ -32,6 +32,7 @@ Second, a system manual shall be produced. This system manual shall consist of t
 
 Antonio Sette, Project Sponsor
 
+
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 Karim Bachir, Project Manager

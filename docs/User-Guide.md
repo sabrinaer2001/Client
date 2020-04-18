@@ -43,7 +43,7 @@ The chat Client application allows users to chat with who ever they want, but on
 1. Double click on the app icon. The initial screen will be brought up.  
 ![alt text](imgs/img1.png)
 ![alt text](imgs/gui1.PNG)
-2. Enter or select the servers IP address, your username and the topic.
+2. Enter or select the servers IP address, your username and the topic.  
 ![alt text](imgs/gui2.PNG)
 3. Click &quot;Registrati&quot; (register) button.
 4. If everything goes well the chat will appear with the connection status and your username on the bottom.

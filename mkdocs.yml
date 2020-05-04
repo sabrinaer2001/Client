@@ -4,6 +4,24 @@ nav:
     - 'Software Requirements Specification': 'Software Requirements Specification.md'
     - 'Software Project Management Plan': 'Software Project Management Plan.md'
     - 'Project Model Canvas': 'canvas model.pdf'
+    - 'Business Model Canvas': 'business_model_canvas.pdf'
+    - 'Iteration Plan': 'Iteration Plan.md'
+    - 'Memo of Understanding': 'MOU.md'
+    - 'Project Success Criteria': 'Project Success Criteria.md'
+    - 'Release Plan': 'Release Plan.md'
+    - 'System Documentation' : 'System Documentation.md'
+    - 'Test Case Specification' : 'test case specification.md'
+    - 'User Guide' : 'User-Guide.md'
+    - 'Iteration Plan PDF': 'Iteration Plan.pdf'
+    - 'Project Charter PDF': 'Project Charter.pdf'
+    - 'Project Success Criteria PDF': 'Project Success Criteria.pdf'
+    - 'Software Project Management Plan PDF': 'Software Project Management Plan.pdf'
+    - 'Software Requirements Specification PDF': 'Software Requirements Specification.pdf'
+    - 'System Documentation PDF': 'System Documentation.pdf'
+    - 'Test Case Specification PDF': 'test case specification.pdf'
+    
+    
+    
 
     
 theme:

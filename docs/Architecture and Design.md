@@ -1,6 +1,9 @@
-**Chat Client Team 4 Architecture Document**
+**Chat Client Team 4 Architecture Document**  
 
-**2019/2020**
+Author: Bachir Karim  
+E-mail: fakemail@gmail.com  
+Date: 13/05/2020  
+Year: **2019/2020**
 
 **Table of Contents**
 
@@ -39,7 +42,10 @@
 **1.0 Introduction**
 
 The Chat Client Team 4 Architecture Document is designed to illustrate and identify the high-level architecture systems used to design and implement the Chat Client application. The document contains an overall view of the system hierarchy, logical views of the system components, and a process view of the system&#39;s communication.
-
+<br />
+<br />
+<br />
+<br />
 **2.0 High Level Hierarchy**
 
 **2.1 Hierarchy Diagram**

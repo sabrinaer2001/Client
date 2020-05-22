@@ -1,9 +1,9 @@
-#
 
 # Chat Client
 
 # User Guide
-
+Author: Bachir Karim  
+Date: 22/05/2020
 # Team 4
 
 
@@ -36,8 +36,16 @@ Toth Valentin
 
 # 1 Introduction
 
-The chat Client application allows users to chat with who ever they want, but only if they have this app,  from a pc.  This document will provide instructions for using the application and especially to register, view and write messages in the public channel, view and write messages in the private channel with single users.
-
+The chat Client application allows users to chat with who ever they want, but only if they have this app,  from a pc.  This document will provide instructions for using the application and especially to register, view and write messages in the public channel, view and write messages in the private channel with single users.  
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 # 2 Usage Guide
 
 1. Double click on the app icon. The initial screen will be brought up.  
@@ -61,7 +69,10 @@ The chat Client application allows users to chat with who ever they want, but on
  
 10. Once you have finished to chat and you want to quit the application you must click the &quot;Disconnetti&quot; (disconnect) button before clicking the top right &quot;X&quot;.
 This to correctly disconnect the client from the server.
-
+<br />
+<br />
+<br />
+<br />
 # 3 System Requirements
 
 The chat Client application should be installed on a Microsoft Windows pc.  It&#39;s a very lightweight application so the only thing that you need is an internet connection.

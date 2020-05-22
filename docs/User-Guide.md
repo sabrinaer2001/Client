@@ -3,6 +3,7 @@
 
 # User Guide
 Author: Bachir Karim  
+E-mail: fakemail@gmail.com   
 Date: 22/05/2020
 # Team 4
 

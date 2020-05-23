@@ -1,10 +1,10 @@
-Toth Mihai Valentin                                                                                                             
+<pre>
+Toth Mihai Valentin                                                                                    23/05/2020 </pre>
 18027@studenti.marconiverona.edu.it
 
 # MEMORANDUM OF UNDERSTANDING
 
 # FOR
-
 # CHAT PROTOCOL PROJECT
 
 1. **Purpose**
@@ -66,7 +66,9 @@ All services provided under this MOU shall be highlighted in this section, inclu
 **5. Duration and Amendments of the MOU**
 
 This MOU will be reviewed annually from the date signed. The **CPPC** System Program Manager will be responsible for this review.
-
+<br />
+<br />
+<br />
 **MEMORANDUM OF UNDERSTANDING**
 
 **FOR**

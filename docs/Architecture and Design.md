@@ -4,7 +4,6 @@
 
 Author: Bachir Karim  
 E-mail: fakemail@gmail.com  
-Date: 13/05/2020  
 Year: 2019/2020
 
 **Table of Contents**

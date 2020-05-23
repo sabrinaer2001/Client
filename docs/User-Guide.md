@@ -3,8 +3,7 @@
 
 # User Guide
 Author: Bachir Karim  
-E-mail: fakemail@gmail.com   
-Date: 22/05/2020
+E-mail: fakemail@gmail.com
 # Team 4
 
 
@@ -38,6 +37,7 @@ Toth Valentin
 # 1 Introduction
 
 The chat Client application allows users to chat with who ever they want, but only if they have this app,  from a pc.  This document will provide instructions for using the application and especially to register, view and write messages in the public channel, view and write messages in the private channel with single users.  
+<br />
 <br />
 <br />
 <br />

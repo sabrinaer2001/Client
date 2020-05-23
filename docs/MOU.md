@@ -1,6 +1,6 @@
 <pre>
-Toth Mihai Valentin                                                                                    23/05/2020 </pre>
-18027@studenti.marconiverona.edu.it
+Toth Mihai Valentin                                                                                    23/05/2020 
+18027@studenti.marconiverona.edu.it</pre>
 
 # MEMORANDUM OF UNDERSTANDING
 

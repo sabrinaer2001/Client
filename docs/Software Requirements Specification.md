@@ -42,6 +42,8 @@
    - 4.2.1 Use Case:
 - 4.2.2 Use Case:
 
+<br />
+<br/>
 
 ## 1 INTRODUCTION
 
@@ -92,6 +94,13 @@ through the use case and usually different outcomes.
 the supplier.
 **Stakeholder** ​– anyone with an interest in the project and its outcomes. This includes
 clients, customers, users, developers, testers, managers and executives.
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 ## 2 GENERAL DESIGN CONSTRAINTS
 
@@ -151,11 +160,11 @@ The Roo Balance proxy server will serve as an interface between the iOS applicat
 Manage My ID website. It will enable interaction between the user and the remote
 website.
 
+<br/>
+
 ## 4 Functional Requirements
 
-### 4.1 Required Features
-
-### 4.1.1 Use Case: 1
+### 4.1.1 Use Case:
 
 **Description: User Login / Check Roo Bucks Balance**
 Actors: student or any Roo Bucks user
@@ -186,7 +195,7 @@ consecutive attempts allowed. Please try again later.”
 7. User may choose to login again, returning to step 1, or exit.
 8. System exits.
 
-### 4.1.1 Use Case:
+### 4.1.2 Use Case:
 
 **Description: Find Where to Spend Roo Bucks**
 Actors: student or any Roo Bucks user
@@ -201,24 +210,3 @@ Basic Path
     exit option.
 5. User clicks exit.
 6. System exits.
-
-## 4.2 Optional Features
-
-### 4.1.2 Use Case:
-
-**Description: Check Roo Bucks Recent Transactions**
-
-
-Actors: student or any Roo Bucks user
-Value = medium
-Cost = high
-Basic Path
-
-2. Following Login [Use Case 1 Step 6]: System displays Account Summary with Roo
-    Bucks balance with options to logoff or view transactions.
-3. User clicks View Transactions.
-4. System displays recent transactions with option to logoff.
-5. User clicks Logoff.
-6. System exits.
-
-

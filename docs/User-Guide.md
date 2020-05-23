@@ -45,8 +45,6 @@ The chat Client application allows users to chat with who ever they want, but on
 <br />
 <br />
 <br />
-<br />
-<br />
 
 # 2 Usage
 

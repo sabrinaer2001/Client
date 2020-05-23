@@ -38,11 +38,10 @@
 - 4.1 Required Features
    - 4.1.1 Use Case:
    - 4.1.2 Use Case:
-- 4.2 Optional Features
-   - 4.2.1 Use Case:
-- 4.2.2 Use Case:
 
 <br />
+<br/>
+<br/>
 <br/>
 
 ## 1 INTRODUCTION

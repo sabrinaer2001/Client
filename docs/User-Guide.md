@@ -54,7 +54,7 @@ The chat Client application allows users to chat with who ever they want, but on
 2. Enter or select the servers IP address, your username and the topic.  
 ![alt text](imgs/gui2.PNG)
 3. Click &quot;Registrati&quot; (register) button.
-4. If everything goes well the chat will appear with the connection status and your username on the bottom.
+4. If everything goes well the chat will appear with the connection status and your username on the bottom.  
 ![alt text](imgs/unnamed.png)
 5. Now you&#39;re logged in and ready to chat!
 6. To write a message in the public channel click on the &quot;Public&quot; tab on the top and write your message in the text field.

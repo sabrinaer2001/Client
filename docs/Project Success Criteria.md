@@ -1,3 +1,6 @@
+Toth Mihai Valentin                                                                                                         23/05/2020
+18027@studenti.marconiverona.edu.it
+
 # Success Criteria for Chat Protocol Project
 
 The Chat project will be considered a success if . . .

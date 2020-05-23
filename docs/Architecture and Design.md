@@ -1,4 +1,6 @@
-**Chat Client Team 4 Architecture Document**  
+# Chat Client 
+
+# Team 4 Architecture Document  
 
 Author: Bachir Karim  
 E-mail: fakemail@gmail.com  
@@ -46,6 +48,10 @@ The Chat Client Team 4 Architecture Document is designed to illustrate and ident
 <br />
 <br />
 <br />
+<br />
+<br />
+<br />
+
 **2.0 High Level Hierarchy**
 
 **2.1 Hierarchy Diagram**
@@ -73,6 +79,14 @@ The architecture system for the Chat Client application is an n-tier architectur
 **Associated Constructs:** Status Controller
 
 - **Connection Status Controller** – Connection Status Controller class will consist of the current connection status. This class will be updated with the newer status every k seconds. This Status Controller will be executed by the Presentation Thread while the user is chatting.
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 **3.3 Business Layer**
 
@@ -106,6 +120,16 @@ The architecture system for the Chat Client application is an n-tier architectur
     - _Name_ – Will hold the name of the error. This property is of type _string_.
     - _Description_ – Will hold the description of the error. This property is of type _string_.
     - _Date_
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
 **3.5 Data Access Layer**
 

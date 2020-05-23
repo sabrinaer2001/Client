@@ -47,7 +47,8 @@ The chat Client application allows users to chat with who ever they want, but on
 <br />
 <br />
 <br />
-# 2 Usage Guide
+
+# 2 Usage
 
 1. Double click on the app icon. The initial screen will be brought up.  
 ![alt text](imgs/img1.png)
@@ -74,6 +75,7 @@ This to correctly disconnect the client from the server.
 <br />
 <br />
 <br />
+
 # 3 System Requirements
 
 The chat Client application should be installed on a Microsoft Windows pc.  It&#39;s a very lightweight application so the only thing that you need is an internet connection.

@@ -40,20 +40,22 @@ Year: 2019/2020
 
 4.4 Interpreter Thread………………………………………………... 
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 **1.0 Introduction**
 
-The Chat Client Team 4 Architecture Document is designed to illustrate and identify the high-level architecture systems used to design and implement the Chat Client application. The document contains an overall view of the system hierarchy, logical views of the system components, and a process view of the system&#39;s communication.
-<br />
-<br />
-<br />
+The Chat Client Team 4 Architecture Document is designed to illustrate and identify the high-level architecture systems used to design and implement the Chat Client application. The document contains an overall view of the system hierarchy, logical views of the system components, and a process view of the system&#39;s communication.  
 
 **2.0 High Level Hierarchy**
 
-**2.1 Hierarchy Diagram**
-
-![](RackMultipart20200418-4-873651_html_396fa389849f1a3d.png)
-
-**2.2 Hierarchy Description**
+**2.1 Hierarchy Description**
 
 The architecture system for the Chat Client application is an n-tier architecture. This architecture system is designed to allow for proper information hiding, modular components, and single system dependencies. The abstraction of the presentation layer, and consequently the Graphical User Interface (GUI), allow for a flexible pipeline for the optimization of the GUI to meet customer needs and expectations. There are multiple layers between the Presentation Layer and the lowest level, due to the significant challenges present in the optimization and control of the Processes design. The Database layer is the lowest level in the hierarchy and is used to save data.
 
@@ -74,9 +76,6 @@ The architecture system for the Chat Client application is an n-tier architectur
 **Associated Constructs:** Status Controller
 
 - **Connection Status Controller** – Connection Status Controller class will consist of the current connection status. This class will be updated with the newer status every k seconds. This Status Controller will be executed by the Presentation Thread while the user is chatting.
-<br />
-<br />
-<br />
 <br />
 <br />
 <br />

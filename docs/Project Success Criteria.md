@@ -16,6 +16,7 @@ The system shall be delivered in a state that is ready to be used in its intende
 <br />
 <br />
 <br />
+<br />
 **Concerns raised during the test period are addressed according to the problem resolution plan contained in the Software Project Management Plan**
 
 All critical defects found before December 19th will be fixed. A critical defect is one for which there is no convenient workaround. Beyond fixing defects, requested changes will be handled on a sliding scale. Changes taking 30 hours or less will be done if notified of the change 3 weeks before the scheduled end of the project. Changes taking 20 hours or less will be done if notified of the change 2 weeks before the scheduled end of the project. Changes taking 10 hours or less will be done if notified of the change 1 week before the scheduled end of the project.
@@ -24,9 +25,11 @@ Users shall be notified of their rights and responsibilities under this policy p
 <br />
 <br />
 <br />
+<br />
 **CPP supervisors can print all reports outlined in spreadsheet sample reports provided during 13/12 requirements meeting.**
 
 These reports shall be in the form of a Microsoft Excel spreadsheets with the data properly displayed. The data on the report should accurately reflect that which is in the database.
+<br />
 <br />
 <br />
 <br />
@@ -48,7 +51,12 @@ Antonio Sette, Project Sponsor
 \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 Karim Bachir, Project Manager
-
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 **CPP Acceptance Test User Survey**
 
 1. Is the system installed and functioning adequately such that you can begin using it in its production environment for its intended purpose?

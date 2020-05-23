@@ -1,3 +1,6 @@
+Toth Mihai Valentin                                                                                                             
+18027@studenti.marconiverona.edu.it
+
 # MEMORANDUM OF UNDERSTANDING
 
 # FOR
@@ -101,5 +104,3 @@ Telephone Number: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ E-Mail Address:
 Signature: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
 
 Telephone Number: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ E-Mail Address: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
-
-4

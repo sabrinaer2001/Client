@@ -47,10 +47,6 @@ The Chat Client Team 4 Architecture Document is designed to illustrate and ident
 <br />
 <br />
 <br />
-<br />
-<br />
-<br />
-<br />
 
 **2.0 High Level Hierarchy**
 

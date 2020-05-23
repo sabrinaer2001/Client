@@ -1,5 +1,5 @@
 <pre>
-Toth Mihai Valentin                                                                                        23/05/2020
+Toth Mihai Valentin                                                                                   23/05/2020
 18027@studenti.marconiverona.edu.it</pre>
 
 # Success Criteria for Chat Protocol Project
